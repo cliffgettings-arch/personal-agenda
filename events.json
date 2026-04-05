@@ -1,53 +1,314 @@
 [
-  { "id": "e01", "date": "2026-03-02", "title": "Cliff's Birthday", "private": false },
-  { "id": "e02", "date": "2026-03-10", "title": "Rayden's Birthday", "private": false },
-  { "id": "e03", "date": "2026-03-21", "title": "First day of Spring", "private": false },
-  { "id": "e04", "date": "2026-03-22", "title": "Rayden Math Competition", "private": false },
-  { "id": "e05", "date": "2026-03-22", "title": "See Hail Mary Cinema", "private": false },
-  { "id": "e06", "date": "2026-04-01", "title": "Study Day", "private": false },
-  { "id": "e07", "date": "2026-04-02", "title": "Study Day", "private": false },
-  { "id": "e08", "date": "2026-04-06", "title": "Hand out Dakkapel Fliers", "private": false },
-  { "id": "e09", "date": "2026-04-08", "title": "Dakkapel Installation", "private": false },
-  { "id": "e10", "date": "2026-04-09", "title": "Heat Pump Installation", "private": false },
-  { "id": "e11", "date": "2026-04-10", "title": "Heat Pump Installation", "private": false },
-  { "id": "e12", "date": "2026-04-15", "title": "Air Con Installation", "private": false },
-  { "id": "e13", "date": "2026-04-23", "title": "Catherine Goes Office", "private": false },
-  { "id": "e14", "date": "2026-04-24", "title": "Michael Jackson Movie", "private": false },
-  { "id": "e15", "date": "2026-04-27", "title": "King's Day", "private": false },
-  { "id": "e16", "date": "2026-05-08", "title": "Nessy's Finals Begin", "private": false },
-  { "id": "e17", "date": "2026-05-08", "title": "Replace Car Tires", "private": false },
-  { "id": "e18", "date": "2026-05-10", "title": "Mother's Day", "private": false },
-  { "id": "e19", "date": "2026-05-14", "title": "Ascension Day", "private": false },
-  { "id": "e20", "date": "2026-05-15", "title": "Mortal Kombat II Movie", "private": false },
-  { "id": "e21", "date": "2026-05-18", "title": "Mum's Birthday", "private": false },
-  { "id": "e22", "date": "2026-05-22", "title": "Grogu and Mandalorian Movie", "private": false },
-  { "id": "e23", "date": "2026-05-22", "title": "Nessy's Finals Ends", "private": false },
-  { "id": "e24", "date": "2026-05-27", "title": "007 First Light Release Day", "private": false },
-  { "id": "e25", "date": "2026-06-05", "title": "Masters of the Universe Movie", "private": false },
-  { "id": "e26", "date": "2026-06-11", "title": "Fifa World Cup 2026 Kick Off", "private": false },
-  { "id": "e27", "date": "2026-06-17", "title": "Fifa World Cup 2026 Eng vs Croatia", "private": false },
-  { "id": "e28", "date": "2026-06-22", "title": "Disclosure Day Movie", "private": false },
-  { "id": "e29", "date": "2026-06-23", "title": "Fifa World Cup 2026 Eng vs Ghana", "private": false },
-  { "id": "e30", "date": "2026-06-26", "title": "Supergirl Movie", "private": false },
-  { "id": "e31", "date": "2026-06-27", "title": "Fifa World Cup 2026 Eng vs Panama", "private": false },
-  { "id": "e32", "date": "2026-07-01", "title": "Study Day", "private": false },
-  { "id": "e33", "date": "2026-07-18", "title": "YMCA Summer Camp for Rayden and Harvey", "private": false },
-  { "id": "e34", "date": "2026-07-19", "title": "Fifa World Cup 2026 Final", "private": false },
-  { "id": "e35", "date": "2026-07-26", "title": "Rayden Soccer Camp", "private": false },
-  { "id": "e36", "date": "2026-07-31", "title": "Spiderman Brand New Day", "private": false },
-  { "id": "e37", "date": "2026-08-14", "title": "The End of Oak Street Movie", "private": false },
-  { "id": "e38", "date": "2026-09-01", "title": "Avi Birthday", "private": false },
-  { "id": "e39", "date": "2026-11-08", "title": "Karina's Birthday", "private": false },
-  { "id": "e40", "date": "2026-11-10", "title": "Harvey's Birthday", "private": false },
-  { "id": "e41", "date": "2026-11-19", "title": "GTA 6 Release Day", "private": false },
-  { "id": "e42", "date": "2026-12-18", "title": "Avengers Doomsday Release Day", "private": false },
-  { "id": "e43", "date": "2026-12-18", "title": "Fly to Shenzhen", "private": true },
-  { "id": "e44", "date": "2026-12-20", "title": "Nessy Birthday", "private": false },
-  { "id": "e45", "date": "2026-12-25", "title": "Christmas", "private": false },
-  { "id": "e46", "date": "2026-12-25", "title": "Dune 3 Release Day", "private": false },
-  { "id": "e47", "date": "2026-12-30", "title": "Catherine's Birthday", "private": false },
-  { "id": "e48", "date": "2027-01-02", "title": "Fly back Home", "private": true },
-  { "id": "e49", "date": "2027-02-21", "title": "Mia's Birthday", "private": false },
-  { "id": "e50", "date": "2027-03-02", "title": "Cliff's Birthday", "private": false },
-  { "id": "e51", "date": "2027-03-10", "title": "Rayden's Birthday", "private": false }
+  {
+    "id": "e01",
+    "date": "2026-03-02",
+    "title": "Cliff's Birthday",
+    "private": false
+  },
+  {
+    "id": "e02",
+    "date": "2026-03-10",
+    "title": "Rayden's Birthday",
+    "private": false
+  },
+  {
+    "id": "e03",
+    "date": "2026-03-21",
+    "title": "First day of Spring",
+    "private": false
+  },
+  {
+    "id": "e04",
+    "date": "2026-03-22",
+    "title": "Rayden Math Competition",
+    "private": false
+  },
+  {
+    "id": "e05",
+    "date": "2026-03-22",
+    "title": "See Hail Mary Cinema",
+    "private": false
+  },
+  {
+    "id": "e06",
+    "date": "2026-04-01",
+    "title": "Study Day",
+    "private": false
+  },
+  {
+    "id": "e07",
+    "date": "2026-04-02",
+    "title": "Study Day",
+    "private": false
+  },
+  {
+    "id": "e08",
+    "date": "2026-04-06",
+    "title": "Hand out Dakkapel Fliers",
+    "private": false
+  },
+  {
+    "id": "e09",
+    "date": "2026-04-08",
+    "title": "Dakkapel Installation",
+    "private": false
+  },
+  {
+    "id": "e10",
+    "date": "2026-04-09",
+    "title": "Heat Pump Installation",
+    "private": false
+  },
+  {
+    "id": "e11",
+    "date": "2026-04-10",
+    "title": "Heat Pump Installation",
+    "private": false
+  },
+  {
+    "id": "e12",
+    "date": "2026-04-15",
+    "title": "Air Con Installation",
+    "private": false
+  },
+  {
+    "id": "e13",
+    "date": "2026-04-23",
+    "title": "Catherine Goes Office",
+    "private": false
+  },
+  {
+    "id": "e14",
+    "date": "2026-04-24",
+    "title": "Michael Jackson Movie",
+    "private": false
+  },
+  {
+    "id": "e15",
+    "date": "2026-04-27",
+    "title": "King's Day",
+    "private": false
+  },
+  {
+    "id": "e16",
+    "date": "2026-05-08",
+    "title": "Nessy's Finals Begin",
+    "private": false
+  },
+  {
+    "id": "e17",
+    "date": "2026-05-08",
+    "title": "Replace Car Tires",
+    "private": false
+  },
+  {
+    "id": "e18",
+    "date": "2026-05-10",
+    "title": "Mother's Day",
+    "private": false
+  },
+  {
+    "id": "e19",
+    "date": "2026-05-14",
+    "title": "Ascension Day",
+    "private": false
+  },
+  {
+    "id": "e20",
+    "date": "2026-05-15",
+    "title": "Mortal Kombat II Movie",
+    "private": false
+  },
+  {
+    "id": "e21",
+    "date": "2026-05-18",
+    "title": "Mum's Birthday",
+    "private": false
+  },
+  {
+    "id": "e22",
+    "date": "2026-05-22",
+    "title": "Grogu and Mandalorian Movie",
+    "private": false
+  },
+  {
+    "id": "e23",
+    "date": "2026-05-22",
+    "title": "Nessy's Finals Ends",
+    "private": false
+  },
+  {
+    "id": "e24",
+    "date": "2026-05-27",
+    "title": "007 First Light Release Day",
+    "private": false
+  },
+  {
+    "id": "e25",
+    "date": "2026-06-05",
+    "title": "Masters of the Universe Movie",
+    "private": false
+  },
+  {
+    "id": "e26",
+    "date": "2026-06-11",
+    "title": "Fifa World Cup 2026 Kick Off",
+    "private": false
+  },
+  {
+    "id": "e27",
+    "date": "2026-06-17",
+    "title": "Fifa World Cup 2026 Eng vs Croatia",
+    "private": false
+  },
+  {
+    "id": "e28",
+    "date": "2026-06-22",
+    "title": "Disclosure Day Movie",
+    "private": false
+  },
+  {
+    "id": "e29",
+    "date": "2026-06-23",
+    "title": "Fifa World Cup 2026 Eng vs Ghana",
+    "private": false
+  },
+  {
+    "id": "e30",
+    "date": "2026-06-26",
+    "title": "Supergirl Movie",
+    "private": false
+  },
+  {
+    "id": "e31",
+    "date": "2026-06-27",
+    "title": "Fifa World Cup 2026 Eng vs Panama",
+    "private": false
+  },
+  {
+    "id": "e32",
+    "date": "2026-07-01",
+    "title": "Study Day",
+    "private": false
+  },
+  {
+    "id": "e33",
+    "date": "2026-07-18",
+    "title": "YMCA Summer Camp for Rayden and Harvey",
+    "private": false
+  },
+  {
+    "id": "e34",
+    "date": "2026-07-19",
+    "title": "Fifa World Cup 2026 Final",
+    "private": false
+  },
+  {
+    "id": "e35",
+    "date": "2026-07-26",
+    "title": "Rayden Soccer Camp",
+    "private": false
+  },
+  {
+    "id": "e36",
+    "date": "2026-07-31",
+    "title": "Spiderman Brand New Day",
+    "private": false
+  },
+  {
+    "id": "e37",
+    "date": "2026-08-14",
+    "title": "The End of Oak Street Movie",
+    "private": false
+  },
+  {
+    "id": "e38",
+    "date": "2026-09-01",
+    "title": "Avi Birthday",
+    "private": false
+  },
+  {
+    "id": "e39",
+    "date": "2026-11-08",
+    "title": "Karina's Birthday",
+    "private": false
+  },
+  {
+    "id": "e40",
+    "date": "2026-11-10",
+    "title": "Harvey's Birthday",
+    "private": false
+  },
+  {
+    "id": "e41",
+    "date": "2026-11-19",
+    "title": "GTA 6 Release Day",
+    "private": false
+  },
+  {
+    "id": "e42",
+    "date": "2026-12-18",
+    "title": "Avengers Doomsday Release Day",
+    "private": false
+  },
+  {
+    "id": "e43",
+    "date": "2026-12-18",
+    "title": "Fly to Shenzhen",
+    "private": true
+  },
+  {
+    "id": "e44",
+    "date": "2026-12-20",
+    "title": "Nessy Birthday",
+    "private": false
+  },
+  {
+    "id": "e45",
+    "date": "2026-12-25",
+    "title": "Christmas",
+    "private": false
+  },
+  {
+    "id": "e46",
+    "date": "2026-12-25",
+    "title": "Dune 3 Release Day",
+    "private": false
+  },
+  {
+    "id": "e47",
+    "date": "2026-12-30",
+    "title": "Catherine's Birthday",
+    "private": false
+  },
+  {
+    "id": "e48",
+    "date": "2027-01-02",
+    "title": "Fly back Home",
+    "private": true
+  },
+  {
+    "id": "e49",
+    "date": "2027-02-21",
+    "title": "Mia's Birthday",
+    "private": false
+  },
+  {
+    "id": "e50",
+    "date": "2027-03-02",
+    "title": "Cliff's Birthday",
+    "private": false
+  },
+  {
+    "id": "e51",
+    "date": "2027-03-10",
+    "title": "Rayden's Birthday",
+    "private": false
+  },
+  {
+    "id": "mnl83xtiaxtc",
+    "date": "2026-04-05",
+    "title": "Test event for this application",
+    "private": false
+  }
 ]
