@@ -45,7 +45,7 @@
     "id": "e08",
     "date": "2026-04-06",
     "title": "Hand out Dakkapel Fliers",
-    "private": true
+    "private": false
   },
   {
     "id": "e09",
@@ -303,6 +303,12 @@
     "id": "e51",
     "date": "2027-03-10",
     "title": "Rayden's Birthday",
+    "private": false
+  },
+  {
+    "id": "mnlgr9x8o679",
+    "date": "2026-04-06",
+    "title": "test3",
     "private": false
   }
 ]
