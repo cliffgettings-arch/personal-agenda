@@ -39,977 +39,172 @@
             --radius-md: 14px;
             --radius-sm: 10px;
         }
-
         body.dark-mode {
-            --bg: #0f172a;
-            --panel: rgba(15, 23, 42, 0.94);
-            --panel-soft: rgba(15, 23, 42, 0.92);
-            --panel-strong: #162033;
-            --text: #e5edf8;
-            --muted: #94a3b8;
-            --muted-2: #7f8ea3;
-            --line: rgba(148, 163, 184, 0.18);
-            --line-soft: rgba(148, 163, 184, 0.10);
-            --accent: #60a5fa;
-            --accent-strong: #93c5fd;
-            --accent-soft: rgba(96, 165, 250, 0.16);
-            --accent-bar: linear-gradient(180deg, #93c5fd 0%, #3b82f6 100%);
-            --success: #34d399;
-            --success-soft: rgba(52, 211, 153, 0.14);
-            --warning: #fbbf24;
-            --warning-soft: rgba(251, 191, 36, 0.15);
-            --urgent: #fb7185;
-            --urgent-soft: rgba(251, 113, 133, 0.16);
-            --today: #a78bfa;
-            --today-soft: rgba(167, 139, 250, 0.16);
-            --today-glow: rgba(167, 139, 250, 0.22);
-            --past: #64748b;
-            --past-soft: rgba(100, 116, 139, 0.20);
-            --hero-top: #0b1220;
-            --hero-bottom: #1e3a5f;
-            --shadow: 0 16px 40px rgba(2, 6, 23, 0.45);
-            --shadow-soft: 0 6px 18px rgba(2, 6, 23, 0.28);
-        }
-
-        body.dark-mode {
-            background:
-                radial-gradient(circle at top left, rgba(96, 165, 250, 0.10), transparent 28%),
-                radial-gradient(circle at top right, rgba(167, 139, 250, 0.10), transparent 24%),
-                linear-gradient(180deg, #0b1220 0%, #101827 46%, #0f172a 100%);
-        }
-
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text);
-            background:
-                radial-gradient(circle at top left, rgba(96, 165, 250, 0.12), transparent 28%),
-                radial-gradient(circle at top right, rgba(167, 139, 250, 0.10), transparent 24%),
-                linear-gradient(180deg, #eef4fb 0%, #f7f9fc 46%, #eef2f7 100%);
-            padding: 24px 14px;
-            transition: background 0.25s ease, color 0.25s ease;
-        }
-
-        .shell { max-width: 1420px; margin: 0 auto; }
-        .dashboard { display: grid; gap: 18px; }
-
-        .card {
-            background: var(--panel);
-            border: 1px solid rgba(255,255,255,0.78);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .hero {
-            position: relative;
-            padding: 24px 28px 20px;
-            background: linear-gradient(135deg, var(--hero-top), var(--hero-bottom));
-            color: white;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: auto auto -30px -40px;
-            width: 180px; height: 180px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            filter: blur(6px);
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: auto -48px -54px auto;
-            width: 210px; height: 210px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.07);
-            filter: blur(10px);
-        }
-
-        .hero-top {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            gap: 14px;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.76rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.78);
-            margin-bottom: 8px;
-        }
-
-        .eyebrow-icon {
-            width: 20px; height: 20px;
-            display: inline-grid;
-            place-items: center;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.12);
-            font-size: 0.72rem;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: clamp(1.9rem, 3vw, 2.8rem);
-            line-height: 1.02;
-            letter-spacing: -0.035em;
-        }
-
-        .hero p {
-            margin: 8px 0 0;
-            font-size: 0.94rem;
-            line-height: 1.45;
-            color: rgba(255,255,255,0.82);
-            max-width: 62ch;
-        }
-
-        .hero-divider {
-            width: 72px; height: 3px;
-            margin-top: 12px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.35));
-        }
-
-        .hero-meta {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(165px, 1fr));
-            gap: 12px;
-            min-width: min(100%, 360px);
-        }
-
-        .meta-widget {
-            background: rgba(255,255,255,0.10);
-            border: 1px solid rgba(255,255,255,0.14);
-            border-radius: 18px;
-            padding: 12px 14px;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-        }
-
-        .meta-widget .label {
-            display: block;
-            font-size: 0.7rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.09em;
-            color: rgba(255,255,255,0.66);
-            margin-bottom: 8px;
-        }
-
-        .meta-widget .value-strong {
-            display: block;
-            font-size: 1.65rem;
-            font-weight: 800;
-            line-height: 1;
-        }
-
-        .meta-widget .value-sub {
-            display: block;
-            margin-top: 4px;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.84);
-        }
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.95fr);
-            gap: 18px;
-            align-items: start;
-        }
-
-        .agenda-card { display: grid; }
-
-        .content {
-            padding: 18px 20px 20px;
-            background: var(--panel-soft);
-        }
-
-        .intro-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 14px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 14px;
-        }
-
-        .intro-copy h2, .panel-head h2 {
-            margin: 0 0 4px;
-            font-size: 1.06rem;
-            letter-spacing: -0.025em;
-        }
-
-        .intro-copy p, .panel-head p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 0.86rem;
-            line-height: 1.45;
-        }
-
-        .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
-
-        .pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 7px 11px;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent-strong);
-            font-weight: 700;
-            font-size: 0.78rem;
-            white-space: nowrap;
-        }
-
-        .pill.secondary {
-            background: rgba(24, 32, 51, 0.05);
-            color: var(--text);
-        }
-
-        .month-grid {
-            display: grid;
-            gap: 12px;
-            max-height: calc(100vh - 265px);
-            overflow: auto;
-            padding-right: 4px;
-        }
-
-        .month-grid::-webkit-scrollbar,
-        .side-stack::-webkit-scrollbar,
-        .scratchpad-input::-webkit-scrollbar { width: 10px; }
-
-        .month-grid::-webkit-scrollbar-thumb,
-        .side-stack::-webkit-scrollbar-thumb,
-        .scratchpad-input::-webkit-scrollbar-thumb {
-            background: rgba(100, 116, 139, 0.28);
-            border-radius: 999px;
-        }
-
-        .month-section {
-            position: relative;
-            background: var(--panel-strong);
-            border: 1px solid var(--line-soft);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .month-section::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 4px;
-            background: var(--accent-bar);
-        }
-
-        .month-header {
-            position: sticky;
-            top: 0;
-            z-index: 4;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            padding: 11px 16px 11px 18px;
-            margin-left: 4px;
-            border-bottom: 1px solid rgba(24, 32, 51, 0.06);
-            background: linear-gradient(180deg, rgba(248, 251, 255, 0.98) 0%, rgba(240, 246, 255, 0.98) 100%);
-            backdrop-filter: blur(8px);
-        }
-
-        .month-title { font-size: 0.96rem; font-weight: 800; letter-spacing: -0.02em; }
-
-        .month-count {
-            font-size: 0.77rem;
-            font-weight: 700;
-            color: var(--muted);
-            background: #edf3fb;
-            padding: 5px 8px;
-            border-radius: 999px;
-        }
-
-        .event-list { display: grid; }
-
-        .event-item {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(200px, 220px) minmax(0, 1fr) auto;
-            gap: 12px;
-            padding: 10px 16px 10px 18px;
-            margin-left: 4px;
-            align-items: center;
-            border-bottom: 1px solid var(--line-soft);
-            transition: background 0.18s ease, opacity 0.18s ease;
-        }
-
-        .event-item:hover { background: rgba(59, 130, 246, 0.035); }
-        .event-item:last-child { border-bottom: none; }
-
-        .event-item::before {
-            content: "";
-            position: absolute;
-            left: 0; top: 9px; bottom: 9px;
-            width: 3px;
-            border-radius: 999px;
-            background: transparent;
-        }
-
-        .event-date {
-            font-size: 0.79rem;
-            line-height: 1.28;
-            font-weight: 600;
-            color: var(--muted);
-            letter-spacing: -0.01em;
-        }
-
-        .event-name {
-            font-size: 0.93rem;
-            line-height: 1.3;
-            font-weight: 700;
-            color: var(--text);
-            min-width: 0;
-        }
-
-        .event-name.is-private {
-            color: var(--muted);
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .event-meta {
-            justify-self: end;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .countdown-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 112px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            font-size: 0.73rem;
-            font-weight: 800;
-            white-space: nowrap;
-            background: rgba(24, 32, 51, 0.06);
-            color: var(--muted);
-            border: 1px solid transparent;
-        }
-
-        .event-item.is-upcoming-soon .countdown-badge { background: var(--success-soft); color: var(--success); }
-        .event-item.is-upcoming-mid .countdown-badge  { background: var(--warning-soft); color: var(--warning); }
-        .event-item.is-upcoming-far .countdown-badge  { background: rgba(59,130,246,0.09); color: var(--accent-strong); }
-
-        .event-item.is-past {
-            opacity: 0.66;
-            background: linear-gradient(180deg, rgba(148,163,184,0.04), rgba(148,163,184,0.015));
-        }
-
-        .event-item.is-past::before { background: rgba(148, 163, 184, 0.22); }
-        .event-item.is-past .event-date,
-        .event-item.is-past .event-name { color: var(--past); }
-
-        .event-item.is-past .countdown-badge {
-            background: rgba(148,163,184,0.08);
-            color: var(--past);
-            border-color: rgba(148,163,184,0.08);
-            min-width: 96px;
-        }
-
-        .event-item.is-today {
-            background: linear-gradient(180deg, rgba(124,58,237,0.085), rgba(124,58,237,0.025));
-            box-shadow: inset 0 0 0 1px rgba(124,58,237,0.08);
-        }
-
-        .event-item.is-today::before {
-            background: linear-gradient(180deg, rgba(167,139,250,0.95), rgba(124,58,237,1));
-            box-shadow: 0 0 14px var(--today-glow);
-        }
-
-        .event-item.is-today .event-date,
-        .event-item.is-today .event-name { color: #3f2c8f; }
-
-        .event-item.is-today .countdown-badge {
-            background: rgba(124,58,237,0.12);
-            color: var(--today);
-            border-color: rgba(124,58,237,0.12);
-            box-shadow: 0 0 0 4px rgba(124,58,237,0.06);
-        }
-
-        /* ── Edit mode ─────────────────────────────── */
-        .event-item.is-editing {
-            grid-template-columns: 1fr;
-            background: var(--accent-soft);
-            border-radius: 10px;
-            padding: 12px 16px 12px 18px;
-            gap: 8px;
-        }
-
-        .edit-row {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .edit-input {
-            background: var(--panel-strong);
-            border: 1px solid rgba(59,130,246,0.35);
-            border-radius: 8px;
-            padding: 7px 10px;
-            font: inherit;
-            font-size: 0.88rem;
-            color: var(--text);
-            outline: none;
-        }
-
-        .edit-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.12); }
-        .edit-input-date { width: 145px; }
-        .edit-input-title { flex: 1; min-width: 160px; }
-
-        .edit-private-label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--muted);
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        /* ── Action buttons ─────────────────────────── */
-        .event-actions {
-            display: flex;
-            gap: 4px;
-            opacity: 0;
-            transition: opacity 0.15s ease;
-        }
-
-        .event-item:hover .event-actions { opacity: 1; }
-
-        .act-btn {
-            appearance: none;
-            border: none;
-            border-radius: 7px;
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            cursor: pointer;
-            padding: 0;
-            background: rgba(24, 32, 51, 0.07);
-            color: var(--muted);
-            transition: background 0.15s, color 0.15s;
-        }
-
-        .act-btn:hover { background: var(--accent-soft); color: var(--accent); transform: none; }
-        .act-btn.act-del:hover { background: rgba(244,63,94,0.12); color: #e11d48; }
-        .act-btn.act-save:hover { background: var(--success-soft); color: var(--success); }
-        .act-btn.act-cancel:hover { background: rgba(100,116,139,0.12); color: var(--muted); }
-
-        /* ── Add event form ──────────────────────────── */
-        .add-event-form {
-            background: var(--accent-soft);
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: var(--radius-md);
-            padding: 14px 16px;
-            margin-bottom: 14px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .add-event-form input[type="date"],
-        .add-event-form input[type="text"] {
-            background: var(--panel-strong);
-            border: 1px solid rgba(59,130,246,0.25);
-            border-radius: 10px;
-            padding: 9px 12px;
-            font: inherit;
-            font-size: 0.88rem;
-            color: var(--text);
-            outline: none;
-        }
-
-        .add-event-form input[type="date"] { width: 155px; }
-        .add-event-form input[type="text"] { flex: 1; min-width: 180px; }
-        .add-event-form input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59,130,246,0.10); }
-
-        .add-event-label {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: var(--muted);
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
-        .empty-state { padding: 22px 18px; color: var(--muted); font-style: italic; }
-
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 12px 20px 16px;
-            color: var(--muted);
-            font-size: 0.8rem;
-            background: var(--panel-soft);
-            border-top: 1px solid var(--line-soft);
-        }
-
-        .side-stack {
-            display: grid;
-            gap: 18px;
-            position: sticky;
-            top: 24px;
-            max-height: calc(100vh - 48px);
-            overflow: auto;
-            padding-right: 4px;
-        }
-
-        .panel-card {
-            background: var(--panel);
-            border: 1px solid rgba(255,255,255,0.78);
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-
-        .panel-card-body { padding: 18px; display: grid; gap: 14px; }
-        .panel-head { display: grid; gap: 4px; }
-
-        .field-label {
-            display: block;
-            font-size: 0.76rem;
-            font-weight: 800;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--muted);
-            margin-bottom: 8px;
-        }
-
-        select, input[type="text"], textarea {
-            width: 100%;
-            border: 1px solid rgba(24, 32, 51, 0.12);
-            background: rgba(248, 251, 255, 0.96);
-            border-radius: 14px;
-            padding: 12px 13px;
-            font: inherit;
-            color: var(--text);
-            outline: none;
-            transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-        }
-
-        select:focus, input[type="text"]:focus, textarea:focus {
-            border-color: rgba(59, 130, 246, 0.45);
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.08);
-            background: #fff;
-        }
-
-        button {
-            appearance: none;
-            border: none;
-            border-radius: 12px;
-            padding: 11px 14px;
-            font: inherit;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.16s ease, opacity 0.16s ease, background 0.16s ease;
-        }
-
-        button:hover { transform: translateY(-1px); }
-        button:active { transform: translateY(0); }
-
-        .primary-btn { background: var(--accent); color: white; }
-        .ghost-btn { background: rgba(24, 32, 51, 0.06); color: var(--text); }
-
-        .weather-summary {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 12px;
-            align-items: center;
-            padding: 14px;
-            border-radius: 18px;
-            background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(59,130,246,0.03));
-            border: 1px solid rgba(59, 130, 246, 0.10);
-        }
-
-        .weather-icon { font-size: 2rem; line-height: 1; }
-        .weather-temp { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.04em; }
-        .weather-text, .weather-meta { color: var(--muted); font-size: 0.88rem; }
-
-        .weather-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .weather-stat, .forecast-item {
-            padding: 12px;
-            border-radius: 16px;
-            background: rgba(248, 251, 255, 0.92);
-            border: 1px solid rgba(24, 32, 51, 0.06);
-        }
-
-        .weather-stat .stat-label, .forecast-item .forecast-day {
-            display: block;
-            font-size: 0.73rem;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-weight: 800;
-            color: var(--muted);
-            margin-bottom: 6px;
-        }
-
-        .weather-stat .stat-value, .forecast-item .forecast-temps { font-weight: 800; font-size: 0.96rem; }
-
-        .forecast-list { display: grid; gap: 10px; }
-
-        .forecast-item {
-            display: grid;
-            grid-template-columns: 72px 34px 1fr;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .forecast-icon { font-size: 1.25rem; text-align: center; }
-        .forecast-text { color: var(--muted); font-size: 0.84rem; }
-
-        .weather-loading, .weather-error { padding: 14px; border-radius: 16px; font-size: 0.88rem; }
-        .weather-loading { background: rgba(24, 32, 51, 0.04); color: var(--muted); }
-        .weather-error { background: rgba(244, 63, 94, 0.08); color: #9f1239; }
-
-        .todo-controls { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
-        .todo-list { display: grid; gap: 10px; }
-
-        .todo-item {
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 10px;
-            align-items: center;
-            padding: 12px;
-            border-radius: 16px;
-            background: rgba(248, 251, 255, 0.92);
-            border: 1px solid rgba(24, 32, 51, 0.06);
-        }
-
-        .todo-item input[type="checkbox"] { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); cursor: pointer; }
-        .todo-text { font-size: 0.92rem; line-height: 1.35; word-break: break-word; }
-        .todo-item.is-done .todo-text { color: var(--muted-2); text-decoration: line-through; }
-        .todo-delete { background: transparent; color: var(--muted); padding: 6px 8px; border-radius: 10px; }
-        .todo-delete:hover { background: rgba(24, 32, 51, 0.06); }
-
-        .mini-meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 0.82rem; }
-
-        .scratchpad-input { min-height: 220px; resize: vertical; line-height: 1.5; }
-        .small-note { color: var(--muted); font-size: 0.82rem; line-height: 1.45; }
-
-        .hero-actions { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
-
-        .toolbar-btn {
-            appearance: none;
-            border: 1px solid rgba(255,255,255,0.18);
-            background: rgba(255,255,255,0.10);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 10px 14px;
-            font-weight: 700;
-            font-size: 0.86rem;
-            cursor: pointer;
-            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
-        }
-
-        .toolbar-btn:hover { transform: translateY(-1px); background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.28); }
-
-        .section-toggle-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            margin: 16px 0 10px;
-            flex-wrap: wrap;
-        }
-
-        .section-toggle-row h3 { margin: 0; font-size: 0.96rem; letter-spacing: -0.02em; }
-
-        .history-toggle-btn {
-            appearance: none;
-            border: 1px solid var(--line);
-            background: var(--panel-strong);
-            color: var(--text);
-            border-radius: 12px;
-            padding: 9px 13px;
-            font-weight: 700;
-            font-size: 0.82rem;
-            cursor: pointer;
-            box-shadow: var(--shadow-soft);
-        }
-
-        .history-container { overflow: hidden; transition: max-height 0.35s ease; }
-        .history-container.collapsed { max-height: 86px; }
-        .agenda-subsection + .agenda-subsection { margin-top: 18px; }
-
-        /* ── PIN Modal ─────────────────────────────── */
-        .pin-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(10, 15, 30, 0.72);
-            backdrop-filter: blur(4px);
-            z-index: 900;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pin-box {
-            background: var(--panel-strong);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-xl);
-            padding: 32px 28px;
-            width: min(380px, 92vw);
-            box-shadow: 0 24px 64px rgba(0,0,0,0.35);
-            display: grid;
-            gap: 14px;
-        }
-
-        .pin-box h3 { margin: 0; font-size: 1.2rem; letter-spacing: -0.02em; }
-        .pin-box p { margin: 0; color: var(--muted); font-size: 0.88rem; }
-
-        .pin-input {
-            width: 100%;
-            background: var(--panel-soft);
-            border: 1.5px solid var(--line);
-            border-radius: 12px;
-            padding: 12px 14px;
-            font: inherit;
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
-            color: var(--text);
-            outline: none;
-            text-align: center;
-        }
-
-        .pin-input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(59,130,246,0.10); }
-
-        .pin-error {
-            color: #e11d48;
-            font-size: 0.84rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .pin-actions { display: flex; gap: 10px; }
-        .pin-actions .primary-btn { flex: 1; }
-        .pin-actions .ghost-btn { flex: 1; }
-
-        @keyframes shake {
-            0%,100% { transform: translateX(0); }
-            20%,60%  { transform: translateX(-8px); }
-            40%,80%  { transform: translateX(8px); }
-        }
-
-        .pin-box.shake { animation: shake 0.35s ease; }
-
-        /* ── Save Toast ────────────────────────────── */
-        .save-toast {
-            position: fixed;
-            bottom: 28px;
-            right: 28px;
-            background: #162033;
-            color: #e5edf8;
-            padding: 12px 20px;
-            border-radius: 14px;
-            font-weight: 700;
-            font-size: 0.88rem;
-            box-shadow: 0 8px 28px rgba(0,0,0,0.3);
-            z-index: 800;
-            animation: toastIn 0.25s ease;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .save-toast.is-error { background: #3d0a14; color: #fb7185; border-color: rgba(251,113,133,0.25); }
-
-        @keyframes toastIn {
-            from { transform: translateY(12px); opacity: 0; }
-            to   { transform: translateY(0); opacity: 1; }
-        }
-
-        /* ── Events loading state ──────────────────── */
-        .events-loading {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 20px 18px;
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        .spinner {
-            width: 18px; height: 18px;
-            border: 2px solid var(--line);
-            border-top-color: var(--accent);
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
-            flex-shrink: 0;
-        }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* ── Disclaimer banner ─────────────────────── */
-        .disclaimer {
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.22);
-            border-radius: var(--radius-md);
-            padding: 10px 16px;
-            font-size: 0.8rem;
-            color: var(--warning);
-            font-weight: 600;
-            margin-bottom: 14px;
-            line-height: 1.45;
-        }
-
-        /* ── Dark mode overrides ────────────────────── */
-        body.dark-mode .history-toggle-btn,
-        body.dark-mode .ghost-btn,
-        body.dark-mode input,
-        body.dark-mode select,
-        body.dark-mode textarea {
-            border-color: rgba(148, 163, 184, 0.22);
-        }
-
-        body.dark-mode .card,
-        body.dark-mode .panel-card { border-color: rgba(148, 163, 184, 0.12); }
-
-        body.dark-mode .month-header {
-            background: linear-gradient(180deg, rgba(22, 32, 51, 0.98) 0%, rgba(18, 26, 44, 0.98) 100%);
-            border-bottom-color: rgba(148, 163, 184, 0.10);
-        }
-
-        body.dark-mode .month-count { background: rgba(148, 163, 184, 0.12); color: var(--muted); }
-
-        body.dark-mode .weather-stat,
-        body.dark-mode .forecast-item { background: rgba(255,255,255,0.04); border-color: rgba(148,163,184,0.10); }
-
-        body.dark-mode .weather-stat .stat-value,
-        body.dark-mode .forecast-item .forecast-temps { color: var(--text); }
-
-        body.dark-mode .todo-item { background: rgba(255,255,255,0.04); border-color: rgba(148,163,184,0.10); }
-        body.dark-mode .todo-delete:hover { background: rgba(148, 163, 184, 0.12); }
-
-        body.dark-mode select,
-        body.dark-mode input[type="text"],
-        body.dark-mode textarea {
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(148,163,184,0.20);
-            color: var(--text);
-        }
-
-        body.dark-mode select option { background: #162033; color: #e5edf8; }
-
-        body.dark-mode select:focus,
-        body.dark-mode input[type="text"]:focus,
-        body.dark-mode textarea:focus {
-            background: rgba(255,255,255,0.08);
-            border-color: rgba(96,165,250,0.45);
-            box-shadow: 0 0 0 4px rgba(96,165,250,0.10);
-        }
-
-        body.dark-mode .ghost-btn { background: rgba(148,163,184,0.10); color: var(--text); }
-        body.dark-mode .ghost-btn:hover { background: rgba(148,163,184,0.18); }
-        body.dark-mode .pill.secondary { background: rgba(148,163,184,0.12); color: var(--text); }
-        body.dark-mode .weather-loading { background: rgba(148,163,184,0.08); color: var(--muted); }
-        body.dark-mode .weather-error { background: rgba(251,113,133,0.10); color: #fb7185; }
-
-        body.dark-mode .event-item.is-today .event-date,
-        body.dark-mode .event-item.is-today .event-name { color: #c4b5fd; }
-
-        body.dark-mode .countdown-badge { background: rgba(148,163,184,0.10); }
-
-        body.dark-mode .act-btn { background: rgba(148,163,184,0.10); color: var(--muted); }
-        body.dark-mode .act-btn:hover { background: var(--accent-soft); color: var(--accent); }
-        body.dark-mode .act-btn.act-del:hover { background: rgba(251,113,133,0.14); color: #fb7185; }
-
-        body.dark-mode .add-event-form { background: rgba(96,165,250,0.08); border-color: rgba(96,165,250,0.18); }
-        body.dark-mode .add-event-form input { background: rgba(255,255,255,0.06); border-color: rgba(96,165,250,0.22); color: var(--text); }
-
-        body.dark-mode .edit-input { background: rgba(255,255,255,0.06); color: var(--text); }
-
-        body.dark-mode .save-toast { background: #0f172a; border-color: rgba(255,255,255,0.12); }
-
-        /* ── Responsive ────────────────────────────── */
-        @media (max-width: 1100px) {
-            .main-grid { grid-template-columns: minmax(0, 1fr); }
-            .side-stack { position: static; max-height: none; overflow: visible; order: -1; }
-            .month-grid { max-height: none; overflow: visible; }
-        }
-
-        @media (max-width: 760px) {
-            .event-item { grid-template-columns: 1fr; gap: 6px; }
-            .event-meta { justify-self: start; }
-            .countdown-badge { min-width: 0; }
-            .month-header { top: 0; }
-            .weather-grid { grid-template-columns: 1fr; }
-            .forecast-item { grid-template-columns: 60px 28px 1fr; }
-            .hero-meta { grid-template-columns: 1fr; width: 100%; }
-            .event-actions { opacity: 1; }
-        }
-
-        @media (max-width: 640px) {
-            body { padding: 10px; }
-            .hero, .content, .footer, .panel-card-body { padding-left: 14px; padding-right: 14px; }
-            .hero p { max-width: none; }
-            .todo-controls { grid-template-columns: 1fr; }
-            .add-event-form { flex-direction: column; align-items: stretch; }
-            .add-event-form input[type="date"] { width: 100%; }
-        }
+            --bg: #0f172a; --panel: rgba(15,23,42,0.94); --panel-soft: rgba(15,23,42,0.92); --panel-strong: #162033;
+            --text: #e5edf8; --muted: #94a3b8; --muted-2: #7f8ea3; --line: rgba(148,163,184,0.18); --line-soft: rgba(148,163,184,0.10);
+            --accent: #60a5fa; --accent-strong: #93c5fd; --accent-soft: rgba(96,165,250,0.16); --accent-bar: linear-gradient(180deg,#93c5fd 0%,#3b82f6 100%);
+            --success: #34d399; --success-soft: rgba(52,211,153,0.14); --warning: #fbbf24; --warning-soft: rgba(251,191,36,0.15);
+            --urgent: #fb7185; --urgent-soft: rgba(251,113,133,0.16); --today: #a78bfa; --today-soft: rgba(167,139,250,0.16); --today-glow: rgba(167,139,250,0.22);
+            --past: #64748b; --past-soft: rgba(100,116,139,0.20); --hero-top: #0b1220; --hero-bottom: #1e3a5f;
+            --shadow: 0 16px 40px rgba(2,6,23,0.45); --shadow-soft: 0 6px 18px rgba(2,6,23,0.28);
+        }
+        body.dark-mode { background: radial-gradient(circle at top left,rgba(96,165,250,0.10),transparent 28%), radial-gradient(circle at top right,rgba(167,139,250,0.10),transparent 24%), linear-gradient(180deg,#0b1220 0%,#101827 46%,#0f172a 100%); }
+        * { box-sizing: border-box; } html { scroll-behavior: smooth; }
+        body { margin:0; min-height:100vh; font-family:Inter,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--text); background: radial-gradient(circle at top left,rgba(96,165,250,0.12),transparent 28%), radial-gradient(circle at top right,rgba(167,139,250,0.10),transparent 24%), linear-gradient(180deg,#eef4fb 0%,#f7f9fc 46%,#eef2f7 100%); padding:24px 14px; transition:background 0.25s ease,color 0.25s ease; }
+        .shell { max-width:1420px; margin:0 auto; } .dashboard { display:grid; gap:18px; }
+        .card { background:var(--panel); border:1px solid rgba(255,255,255,0.78); border-radius:var(--radius-xl); box-shadow:var(--shadow); overflow:hidden; }
+        .hero { position:relative; padding:24px 28px 20px; background:linear-gradient(135deg,var(--hero-top),var(--hero-bottom)); color:white; }
+        .hero::before { content:""; position:absolute; inset:auto auto -30px -40px; width:180px; height:180px; border-radius:50%; background:rgba(255,255,255,0.05); filter:blur(6px); }
+        .hero::after { content:""; position:absolute; inset:auto -48px -54px auto; width:210px; height:210px; border-radius:50%; background:rgba(255,255,255,0.07); filter:blur(10px); }
+        .hero-top { position:relative; z-index:1; display:flex; gap:14px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; }
+        .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:0.76rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.78); margin-bottom:8px; }
+        .eyebrow-icon { width:20px; height:20px; display:inline-grid; place-items:center; border-radius:999px; background:rgba(255,255,255,0.12); font-size:0.72rem; }
+        h1 { margin:0; font-size:clamp(1.9rem,3vw,2.8rem); line-height:1.02; letter-spacing:-0.035em; }
+        .hero p { margin:8px 0 0; font-size:0.94rem; line-height:1.45; color:rgba(255,255,255,0.82); max-width:62ch; }
+        .hero-divider { width:72px; height:3px; margin-top:12px; border-radius:999px; background:linear-gradient(90deg,rgba(255,255,255,0.95),rgba(255,255,255,0.35)); }
+        .hero-meta { display:grid; grid-template-columns:repeat(2,minmax(165px,1fr)); gap:12px; min-width:min(100%,360px); }
+        .meta-widget { background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.14); border-radius:18px; padding:12px 14px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.08); }
+        .meta-widget .label { display:block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:rgba(255,255,255,0.66); margin-bottom:8px; }
+        .meta-widget .value-strong { display:block; font-size:1.65rem; font-weight:800; line-height:1; }
+        .meta-widget .value-sub { display:block; margin-top:4px; font-size:0.9rem; color:rgba(255,255,255,0.84); }
+        .main-grid { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(300px,0.95fr); gap:18px; align-items:start; }
+        .agenda-card { display:grid; }
+        .content { padding:18px 20px 20px; background:var(--panel-soft); }
+        .intro-row { display:flex; justify-content:space-between; gap:14px; align-items:center; flex-wrap:wrap; margin-bottom:14px; }
+        .intro-copy h2,.panel-head h2 { margin:0 0 4px; font-size:1.06rem; letter-spacing:-0.025em; }
+        .intro-copy p,.panel-head p { margin:0; color:var(--muted); font-size:0.86rem; line-height:1.45; }
+        .pill-group { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+        .pill { display:inline-flex; align-items:center; gap:8px; padding:7px 11px; border-radius:999px; background:var(--accent-soft); color:var(--accent-strong); font-weight:700; font-size:0.78rem; white-space:nowrap; }
+        .pill.secondary { background:rgba(24,32,51,0.05); color:var(--text); }
+        .month-grid { display:grid; gap:12px; max-height:calc(100vh - 265px); overflow:auto; padding-right:4px; }
+        .month-grid::-webkit-scrollbar,.side-stack::-webkit-scrollbar,.scratchpad-input::-webkit-scrollbar { width:10px; }
+        .month-grid::-webkit-scrollbar-thumb,.side-stack::-webkit-scrollbar-thumb,.scratchpad-input::-webkit-scrollbar-thumb { background:rgba(100,116,139,0.28); border-radius:999px; }
+        .month-section { position:relative; background:var(--panel-strong); border:1px solid var(--line-soft); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-soft); }
+        .month-section::before { content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--accent-bar); }
+        .month-header { position:sticky; top:0; z-index:4; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:11px 16px 11px 18px; margin-left:4px; border-bottom:1px solid rgba(24,32,51,0.06); background:linear-gradient(180deg,rgba(248,251,255,0.98) 0%,rgba(240,246,255,0.98) 100%); backdrop-filter:blur(8px); }
+        .month-title { font-size:0.96rem; font-weight:800; letter-spacing:-0.02em; }
+        .month-count { font-size:0.77rem; font-weight:700; color:var(--muted); background:#edf3fb; padding:5px 8px; border-radius:999px; }
+        .event-list { display:grid; }
+        .event-item { position:relative; display:grid; grid-template-columns:minmax(200px,220px) minmax(0,1fr) auto; gap:12px; padding:10px 16px 10px 18px; margin-left:4px; align-items:center; border-bottom:1px solid var(--line-soft); transition:background 0.18s ease; }
+        .event-item:hover { background:rgba(59,130,246,0.035); }
+        .event-item:last-child { border-bottom:none; }
+        .event-item::before { content:""; position:absolute; left:0; top:9px; bottom:9px; width:3px; border-radius:999px; background:transparent; }
+        .event-date { font-size:0.79rem; line-height:1.28; font-weight:600; color:var(--muted); letter-spacing:-0.01em; }
+        .event-name { font-size:0.93rem; line-height:1.3; font-weight:700; color:var(--text); min-width:0; }
+        .event-meta { justify-self:end; display:flex; align-items:center; gap:8px; }
+        .countdown-badge { display:inline-flex; align-items:center; justify-content:center; min-width:112px; padding:5px 10px; border-radius:999px; font-size:0.73rem; font-weight:800; white-space:nowrap; background:rgba(24,32,51,0.06); color:var(--muted); border:1px solid transparent; }
+        .event-item.is-upcoming-soon .countdown-badge { background:var(--success-soft); color:var(--success); }
+        .event-item.is-upcoming-mid .countdown-badge { background:var(--warning-soft); color:var(--warning); }
+        .event-item.is-upcoming-far .countdown-badge { background:rgba(59,130,246,0.09); color:var(--accent-strong); }
+        .event-item.is-past { opacity:0.66; background:linear-gradient(180deg,rgba(148,163,184,0.04),rgba(148,163,184,0.015)); }
+        .event-item.is-past::before { background:rgba(148,163,184,0.22); }
+        .event-item.is-past .event-date,.event-item.is-past .event-name { color:var(--past); }
+        .event-item.is-past .countdown-badge { background:rgba(148,163,184,0.08); color:var(--past); border-color:rgba(148,163,184,0.08); min-width:96px; }
+        .event-item.is-today { background:linear-gradient(180deg,rgba(124,58,237,0.085),rgba(124,58,237,0.025)); box-shadow:inset 0 0 0 1px rgba(124,58,237,0.08); }
+        .event-item.is-today::before { background:linear-gradient(180deg,rgba(167,139,250,0.95),rgba(124,58,237,1)); box-shadow:0 0 14px var(--today-glow); }
+        .event-item.is-today .event-date,.event-item.is-today .event-name { color:#3f2c8f; }
+        .event-item.is-today .countdown-badge { background:rgba(124,58,237,0.12); color:var(--today); border-color:rgba(124,58,237,0.12); box-shadow:0 0 0 4px rgba(124,58,237,0.06); }
+        .event-item.is-editing { grid-template-columns:1fr; background:var(--accent-soft); border-radius:10px; padding:12px 16px 12px 18px; gap:8px; }
+        .edit-row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+        .edit-input { background:var(--panel-strong); border:1px solid rgba(59,130,246,0.35); border-radius:8px; padding:7px 10px; font:inherit; font-size:0.88rem; color:var(--text); outline:none; }
+        .edit-input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(59,130,246,0.12); }
+        .edit-input-date { width:145px; } .edit-input-title { flex:1; min-width:160px; }
+        .edit-private-label { display:flex; align-items:center; gap:5px; font-size:0.82rem; font-weight:700; color:var(--muted); cursor:pointer; white-space:nowrap; }
+        .event-actions { display:flex; gap:4px; opacity:0; transition:opacity 0.15s ease; }
+        .event-item:hover .event-actions { opacity:1; }
+        .act-btn { appearance:none; border:none; border-radius:7px; width:28px; height:28px; display:flex; align-items:center; justify-content:center; font-size:0.8rem; cursor:pointer; padding:0; background:rgba(24,32,51,0.07); color:var(--muted); transition:background 0.15s,color 0.15s; }
+        .act-btn:hover { background:var(--accent-soft); color:var(--accent); transform:none; }
+        .act-btn.act-del:hover { background:rgba(244,63,94,0.12); color:#e11d48; }
+        .act-btn.act-save:hover { background:var(--success-soft); color:var(--success); }
+        .act-btn.act-cancel:hover { background:rgba(100,116,139,0.12); color:var(--muted); }
+        .add-event-form { background:var(--accent-soft); border:1px solid rgba(59,130,246,0.2); border-radius:var(--radius-md); padding:14px 16px; margin-bottom:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+        .add-event-form input[type="date"],.add-event-form input[type="text"] { background:var(--panel-strong); border:1px solid rgba(59,130,246,0.25); border-radius:10px; padding:9px 12px; font:inherit; font-size:0.88rem; color:var(--text); outline:none; }
+        .add-event-form input[type="date"] { width:155px; } .add-event-form input[type="text"] { flex:1; min-width:180px; }
+        .add-event-form input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(59,130,246,0.10); }
+        .add-event-label { display:flex; align-items:center; gap:5px; font-size:0.82rem; font-weight:700; color:var(--muted); cursor:pointer; white-space:nowrap; }
+        .empty-state { padding:22px 18px; color:var(--muted); font-style:italic; }
+        .footer { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; padding:12px 20px 16px; color:var(--muted); font-size:0.8rem; background:var(--panel-soft); border-top:1px solid var(--line-soft); }
+        .side-stack { display:grid; gap:18px; position:sticky; top:24px; max-height:calc(100vh - 48px); overflow:auto; padding-right:4px; }
+        .panel-card { background:var(--panel); border:1px solid rgba(255,255,255,0.78); border-radius:var(--radius-xl); box-shadow:var(--shadow); overflow:hidden; }
+        .panel-card-body { padding:18px; display:grid; gap:14px; } .panel-head { display:grid; gap:4px; }
+        .field-label { display:block; font-size:0.76rem; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+        select,input[type="text"],textarea { width:100%; border:1px solid rgba(24,32,51,0.12); background:rgba(248,251,255,0.96); border-radius:14px; padding:12px 13px; font:inherit; color:var(--text); outline:none; transition:border-color 0.18s ease,box-shadow 0.18s ease,background 0.18s ease; }
+        select:focus,input[type="text"]:focus,textarea:focus { border-color:rgba(59,130,246,0.45); box-shadow:0 0 0 4px rgba(59,130,246,0.08); background:#fff; }
+        button { appearance:none; border:none; border-radius:12px; padding:11px 14px; font:inherit; font-weight:700; cursor:pointer; transition:transform 0.16s ease,opacity 0.16s ease,background 0.16s ease; }
+        button:hover { transform:translateY(-1px); } button:active { transform:translateY(0); }
+        .primary-btn { background:var(--accent); color:white; } .ghost-btn { background:rgba(24,32,51,0.06); color:var(--text); }
+        .weather-summary { display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:center; padding:14px; border-radius:18px; background:linear-gradient(180deg,rgba(59,130,246,0.08),rgba(59,130,246,0.03)); border:1px solid rgba(59,130,246,0.10); }
+        .weather-icon { font-size:2rem; line-height:1; } .weather-temp { font-size:1.6rem; font-weight:800; letter-spacing:-0.04em; }
+        .weather-text,.weather-meta { color:var(--muted); font-size:0.88rem; }
+        .weather-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+        .weather-stat,.forecast-item { padding:12px; border-radius:16px; background:rgba(248,251,255,0.92); border:1px solid rgba(24,32,51,0.06); }
+        .weather-stat .stat-label,.forecast-item .forecast-day { display:block; font-size:0.73rem; text-transform:uppercase; letter-spacing:0.06em; font-weight:800; color:var(--muted); margin-bottom:6px; }
+        .weather-stat .stat-value,.forecast-item .forecast-temps { font-weight:800; font-size:0.96rem; }
+        .forecast-list { display:grid; gap:10px; }
+        .forecast-item { display:grid; grid-template-columns:72px 34px 1fr; gap:12px; align-items:center; }
+        .forecast-icon { font-size:1.25rem; text-align:center; } .forecast-text { color:var(--muted); font-size:0.84rem; }
+        .weather-loading,.weather-error { padding:14px; border-radius:16px; font-size:0.88rem; }
+        .weather-loading { background:rgba(24,32,51,0.04); color:var(--muted); } .weather-error { background:rgba(244,63,94,0.08); color:#9f1239; }
+        .todo-controls { display:grid; grid-template-columns:1fr auto; gap:10px; } .todo-list { display:grid; gap:10px; }
+        .todo-item { display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; padding:12px; border-radius:16px; background:rgba(248,251,255,0.92); border:1px solid rgba(24,32,51,0.06); }
+        .todo-item input[type="checkbox"] { width:18px; height:18px; margin:0; accent-color:var(--accent); cursor:pointer; }
+        .todo-text { font-size:0.92rem; line-height:1.35; word-break:break-word; }
+        .todo-item.is-done .todo-text { color:var(--muted-2); text-decoration:line-through; }
+        .todo-delete { background:transparent; color:var(--muted); padding:6px 8px; border-radius:10px; }
+        .todo-delete:hover { background:rgba(24,32,51,0.06); }
+        .mini-meta { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; color:var(--muted); font-size:0.82rem; }
+        .scratchpad-input { min-height:220px; resize:vertical; line-height:1.5; }
+        .small-note { color:var(--muted); font-size:0.82rem; line-height:1.45; }
+        .hero-actions { margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
+        .toolbar-btn { appearance:none; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.10); color:#ffffff; border-radius:12px; padding:10px 14px; font-weight:700; font-size:0.86rem; cursor:pointer; transition:transform 0.18s ease,background 0.18s ease; }
+        .toolbar-btn:hover { transform:translateY(-1px); background:rgba(255,255,255,0.16); }
+        .section-toggle-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin:16px 0 10px; flex-wrap:wrap; }
+        .section-toggle-row h3 { margin:0; font-size:0.96rem; letter-spacing:-0.02em; }
+        .history-toggle-btn { appearance:none; border:1px solid var(--line); background:var(--panel-strong); color:var(--text); border-radius:12px; padding:9px 13px; font-weight:700; font-size:0.82rem; cursor:pointer; box-shadow:var(--shadow-soft); }
+        .history-container { overflow:hidden; transition:max-height 0.35s ease; } .history-container.collapsed { max-height:86px; }
+        .agenda-subsection + .agenda-subsection { margin-top:18px; }
+        .save-toast { position:fixed; bottom:28px; right:28px; background:#162033; color:#e5edf8; padding:12px 20px; border-radius:14px; font-weight:700; font-size:0.88rem; box-shadow:0 8px 28px rgba(0,0,0,0.3); z-index:800; animation:toastIn 0.25s ease; border:1px solid rgba(255,255,255,0.08); }
+        .save-toast.is-error { background:#3d0a14; color:#fb7185; border-color:rgba(251,113,133,0.25); }
+        @keyframes toastIn { from{transform:translateY(12px);opacity:0} to{transform:translateY(0);opacity:1} }
+        .events-loading { display:flex; align-items:center; gap:10px; padding:20px 18px; color:var(--muted); font-size:0.9rem; }
+        .spinner { width:18px; height:18px; border:2px solid var(--line); border-top-color:var(--accent); border-radius:50%; animation:spin 0.7s linear infinite; flex-shrink:0; }
+        @keyframes spin { to{transform:rotate(360deg)} }
+        .disclaimer { background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.22); border-radius:var(--radius-md); padding:10px 16px; font-size:0.8rem; color:var(--warning); font-weight:600; margin-bottom:14px; line-height:1.45; }
+        body.dark-mode .history-toggle-btn,body.dark-mode .ghost-btn,body.dark-mode input,body.dark-mode select,body.dark-mode textarea { border-color:rgba(148,163,184,0.22); }
+        body.dark-mode .card,body.dark-mode .panel-card { border-color:rgba(148,163,184,0.12); }
+        body.dark-mode .month-header { background:linear-gradient(180deg,rgba(22,32,51,0.98) 0%,rgba(18,26,44,0.98) 100%); border-bottom-color:rgba(148,163,184,0.10); }
+        body.dark-mode .month-count { background:rgba(148,163,184,0.12); color:var(--muted); }
+        body.dark-mode .weather-stat,body.dark-mode .forecast-item { background:rgba(255,255,255,0.04); border-color:rgba(148,163,184,0.10); }
+        body.dark-mode .weather-stat .stat-value,body.dark-mode .forecast-item .forecast-temps { color:var(--text); }
+        body.dark-mode .todo-item { background:rgba(255,255,255,0.04); border-color:rgba(148,163,184,0.10); }
+        body.dark-mode .todo-delete:hover { background:rgba(148,163,184,0.12); }
+        body.dark-mode select,body.dark-mode input[type="text"],body.dark-mode textarea { background:rgba(255,255,255,0.05); border-color:rgba(148,163,184,0.20); color:var(--text); }
+        body.dark-mode select option { background:#162033; color:#e5edf8; }
+        body.dark-mode select:focus,body.dark-mode input[type="text"]:focus,body.dark-mode textarea:focus { background:rgba(255,255,255,0.08); border-color:rgba(96,165,250,0.45); box-shadow:0 0 0 4px rgba(96,165,250,0.10); }
+        body.dark-mode .ghost-btn { background:rgba(148,163,184,0.10); color:var(--text); }
+        body.dark-mode .ghost-btn:hover { background:rgba(148,163,184,0.18); }
+        body.dark-mode .pill.secondary { background:rgba(148,163,184,0.12); color:var(--text); }
+        body.dark-mode .weather-loading { background:rgba(148,163,184,0.08); color:var(--muted); }
+        body.dark-mode .weather-error { background:rgba(251,113,133,0.10); color:#fb7185; }
+        body.dark-mode .event-item.is-today .event-date,body.dark-mode .event-item.is-today .event-name { color:#c4b5fd; }
+        body.dark-mode .countdown-badge { background:rgba(148,163,184,0.10); }
+        body.dark-mode .act-btn { background:rgba(148,163,184,0.10); color:var(--muted); }
+        body.dark-mode .act-btn:hover { background:var(--accent-soft); color:var(--accent); }
+        body.dark-mode .act-btn.act-del:hover { background:rgba(251,113,133,0.14); color:#fb7185; }
+        body.dark-mode .add-event-form { background:rgba(96,165,250,0.08); border-color:rgba(96,165,250,0.18); }
+        body.dark-mode .add-event-form input { background:rgba(255,255,255,0.06); border-color:rgba(96,165,250,0.22); color:var(--text); }
+        body.dark-mode .edit-input { background:rgba(255,255,255,0.06); color:var(--text); }
+        body.dark-mode .save-toast { background:#0f172a; border-color:rgba(255,255,255,0.12); }
+        @media (max-width:1100px) { .main-grid{grid-template-columns:minmax(0,1fr)} .side-stack{position:static;max-height:none;overflow:visible;order:-1} .month-grid{max-height:none;overflow:visible} }
+        @media (max-width:760px) { .event-item{grid-template-columns:1fr;gap:6px} .event-meta{justify-self:start} .countdown-badge{min-width:0} .weather-grid{grid-template-columns:1fr} .forecast-item{grid-template-columns:60px 28px 1fr} .hero-meta{grid-template-columns:1fr;width:100%} .event-actions{opacity:1} }
+        @media (max-width:640px) { body{padding:10px} .hero,.content,.footer,.panel-card-body{padding-left:14px;padding-right:14px} .hero p{max-width:none} .todo-controls{grid-template-columns:1fr} .add-event-form{flex-direction:column;align-items:stretch} .add-event-form input[type="date"]{width:100%} }
     </style>
 </head>
 <body>
-
-    <!-- ══ PIN MODAL ══════════════════════════════ -->
-    <div id="pin-modal" class="pin-overlay" hidden>
-        <div class="pin-box" id="pin-box">
-            <h3>🔐 Enter PIN to edit</h3>
-            <p>Enter your PIN to unlock editing for this session.</p>
-            <input type="password" id="pin-input" class="pin-input" maxlength="20" placeholder="••••" autocomplete="off">
-            <div id="pin-error" class="pin-error" hidden>Incorrect PIN — try again</div>
-            <div class="pin-actions">
-                <button class="primary-btn" id="pin-submit" type="button">Unlock</button>
-                <button class="ghost-btn" id="pin-cancel" type="button">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ══ SAVE TOAST ═════════════════════════════ -->
     <div id="save-toast" class="save-toast" hidden></div>
 
     <main class="shell">
         <div class="dashboard">
-
-            <!-- Hero -->
             <section class="card">
                 <header class="hero">
                     <div class="hero-top">
@@ -1023,12 +218,12 @@
                             </div>
                         </div>
                         <div class="hero-meta">
-                            <aside class="meta-widget" aria-label="Current date">
+                            <aside class="meta-widget">
                                 <span class="label">Today</span>
                                 <span class="value-strong" id="today-day">--</span>
                                 <span class="value-sub" id="today-full">Loading...</span>
                             </aside>
-                            <aside class="meta-widget" aria-label="Next event">
+                            <aside class="meta-widget">
                                 <span class="label">Next event</span>
                                 <span class="value-strong" id="next-event-days">--</span>
                                 <span class="value-sub" id="next-event-title">Looking ahead...</span>
@@ -1038,13 +233,9 @@
                 </header>
             </section>
 
-            <!-- Main grid -->
             <section class="main-grid">
-
-                <!-- Agenda card -->
                 <section class="card agenda-card">
                     <div class="content">
-
                         <div class="intro-row">
                             <div class="intro-copy">
                                 <h2>Upcoming dates at a glance</h2>
@@ -1056,783 +247,357 @@
                                 <button class="primary-btn" id="add-event-btn" type="button" style="padding:7px 14px;font-size:0.82rem;border-radius:999px;">+ Add Event</button>
                             </div>
                         </div>
-
-                        <div class="disclaimer">
-                            🔓 This agenda is publicly viewable. Only items marked Private are hidden from visitors. Do not post sensitive information you would not want the world to see.
-                        </div>
-
-                        <!-- Add event form (hidden by default) -->
+                        <div class="disclaimer">🔓 This agenda is publicly viewable. Do not post sensitive information you would not want the world to see.</div>
                         <div id="add-event-form" class="add-event-form" hidden>
-                            <input type="date" id="add-date" title="Event date">
+                            <input type="date" id="add-date">
                             <input type="text" id="add-title" placeholder="Event title…" maxlength="120">
-                            <label class="add-event-label">
-                                <input type="checkbox" id="add-private"> Private
-                            </label>
+                            <label class="add-event-label"><input type="checkbox" id="add-private"> Private</label>
                             <button class="primary-btn" id="add-event-save" type="button" style="padding:9px 18px;font-size:0.86rem;">Save</button>
                             <button class="ghost-btn" id="add-event-cancel" type="button" style="padding:9px 14px;font-size:0.86rem;">Cancel</button>
                         </div>
-
                         <div class="month-grid" id="month-grid">
                             <div class="events-loading"><div class="spinner"></div> Loading events…</div>
                         </div>
                     </div>
-
                     <footer class="footer">
                         <div id="agenda-range">Agenda range: --</div>
                         <div id="last-updated">Last opened: --</div>
                     </footer>
                 </section>
 
-                <!-- Side panels -->
                 <aside class="side-stack">
                     <section class="panel-card">
                         <div class="panel-card-body">
-                            <div class="panel-head">
-                                <h2>Daily and weekly weather</h2>
-                                <p>Pick a saved location and the dashboard pulls a live forecast.</p>
-                            </div>
-                            <div>
-                                <label class="field-label" for="weather-location">Location</label>
-                                <select id="weather-location"></select>
-                            </div>
-                            <div id="weather-panel">
-                                <div class="weather-loading">Loading weather...</div>
-                            </div>
+                            <div class="panel-head"><h2>Daily and weekly weather</h2><p>Pick a saved location and the dashboard pulls a live forecast.</p></div>
+                            <div><label class="field-label" for="weather-location">Location</label><select id="weather-location"></select></div>
+                            <div id="weather-panel"><div class="weather-loading">Loading weather...</div></div>
                         </div>
                     </section>
-
                     <section class="panel-card">
                         <div class="panel-card-body">
-                            <div class="panel-head">
-                                <h2>To-do list</h2>
-                                <p>Add, tick off, and keep tasks saved in your browser.</p>
-                            </div>
+                            <div class="panel-head"><h2>To-do list</h2><p>Add, tick off, and keep tasks saved in your browser.</p></div>
                             <div class="todo-controls">
                                 <input id="todo-input" type="text" placeholder="Add a task and press Enter" maxlength="140">
                                 <button class="primary-btn" id="todo-add" type="button">Add task</button>
                             </div>
-                            <div class="mini-meta">
-                                <span id="todo-summary">0 tasks</span>
-                                <button class="ghost-btn" id="todo-clear-done" type="button">Clear completed</button>
-                            </div>
-                            <div class="todo-list" id="todo-list">
-                                <div class="empty-state">No tasks yet.</div>
-                            </div>
+                            <div class="mini-meta"><span id="todo-summary">0 tasks</span><button class="ghost-btn" id="todo-clear-done" type="button">Clear completed</button></div>
+                            <div class="todo-list" id="todo-list"><div class="empty-state">No tasks yet.</div></div>
                         </div>
                     </section>
-
                     <section class="panel-card">
                         <div class="panel-card-body">
-                            <div class="panel-head">
-                                <h2>Scratchpad</h2>
-                                <p>Quick notes, reminders, rough ideas, anything.</p>
-                            </div>
+                            <div class="panel-head"><h2>Scratchpad</h2><p>Quick notes, reminders, rough ideas, anything.</p></div>
                             <textarea id="scratchpad" class="scratchpad-input" placeholder="Type notes here..."></textarea>
                             <div class="small-note" id="scratchpad-status">Saved locally in this browser.</div>
                         </div>
                     </section>
                 </aside>
-
             </section>
         </div>
     </main>
 
     <script>
-    // ══════════════════════════════════════════════════════════
-    //  ⚙  CONFIG — fill these in before deploying
-    // ══════════════════════════════════════════════════════════
-    const GITHUB_OWNER  = 'cliffgettings-arch';
-    const GITHUB_REPO   = 'personal-agenda';
-    const GITHUB_FILE   = 'events.json';
-    const GITHUB_BRANCH = 'main';
-    const GITHUB_TOKEN  = '';   // ← your PAT
-    const EDIT_PIN      = '2580';        // ← your chosen PIN
+    var GITHUB_OWNER  = 'cliffgettings-arch';
+    var GITHUB_REPO   = 'personal-agenda';
+    var GITHUB_FILE   = 'events.json';
+    var GITHUB_BRANCH = 'main';
 
-    // ══════════════════════════════════════════════════════════
-    //  STATE
-    // ══════════════════════════════════════════════════════════
-    let allEvents = [];
-    let sessionUnlocked = false;
+    var allEvents = [];
+    var TODO_STORAGE_KEY    = 'agendaDashboard.todos.v1';
+    var NOTES_STORAGE_KEY   = 'agendaDashboard.notes.v1';
+    var WEATHER_STORAGE_KEY = 'agendaDashboard.weatherLocation.v1';
+    var THEME_STORAGE_KEY   = 'agendaDashboard.theme.v1';
 
-    const TODO_STORAGE_KEY    = 'agendaDashboard.todos.v1';
-    const NOTES_STORAGE_KEY   = 'agendaDashboard.notes.v1';
-    const WEATHER_STORAGE_KEY = 'agendaDashboard.weatherLocation.v1';
-    const THEME_STORAGE_KEY   = 'agendaDashboard.theme.v1';
-
-    // ══════════════════════════════════════════════════════════
-    //  DATE HELPERS
-    // ══════════════════════════════════════════════════════════
-    const now     = new Date();
-    const today   = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const oneDay  = 24 * 60 * 60 * 1000;
-
-    const fullDateFmt  = new Intl.DateTimeFormat('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
-    const dateFmt      = new Intl.DateTimeFormat('en-US', { year:'numeric', month:'long', day:'numeric' });
-    const monthFmt     = new Intl.DateTimeFormat('en-US', { year:'numeric', month:'long' });
-    const weekdayFmt   = new Intl.DateTimeFormat('en-US', { weekday:'long' });
+    var now    = new Date();
+    var today  = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var oneDay = 24 * 60 * 60 * 1000;
+    var fullDateFmt = new Intl.DateTimeFormat('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    var dateFmt     = new Intl.DateTimeFormat('en-US', {year:'numeric',month:'long',day:'numeric'});
+    var monthFmt    = new Intl.DateTimeFormat('en-US', {year:'numeric',month:'long'});
+    var weekdayFmt  = new Intl.DateTimeFormat('en-US', {weekday:'long'});
 
     document.getElementById('today-day').textContent  = String(now.getDate());
     document.getElementById('today-full').textContent = fullDateFmt.format(now);
     document.getElementById('last-updated').textContent = 'Last opened: ' + dateFmt.format(now);
 
-    function getOrdinal(n) {
-        const s = n % 10, t = n % 100;
-        if (s === 1 && t !== 11) return 'st';
-        if (s === 2 && t !== 12) return 'nd';
-        if (s === 3 && t !== 13) return 'rd';
-        return 'th';
-    }
+    function getOrdinal(n) { var s=n%10,t=n%100; if(s===1&&t!==11)return 'st'; if(s===2&&t!==12)return 'nd'; if(s===3&&t!==13)return 'rd'; return 'th'; }
+    function formatEventDate(d) { var day=d.getDate(); return weekdayFmt.format(d)+' '+day+getOrdinal(day)+' '+d.toLocaleString('en-US',{month:'long'})+' '+d.getFullYear(); }
+    function getCountdownLabel(diff) { if(diff<0)return Math.abs(diff)+' day'+(Math.abs(diff)===1?'':'s')+' ago'; if(diff===0)return 'Today'; if(diff===1)return 'Tomorrow'; return diff+' days to go'; }
+    function getTimingClass(diff) { if(diff<0)return 'is-past'; if(diff===0)return 'is-today'; if(diff<=7)return 'is-upcoming-soon'; if(diff<=30)return 'is-upcoming-mid'; return 'is-upcoming-far'; }
+    function newId() { return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+    function cid() { if(window.crypto&&window.crypto.randomUUID)return window.crypto.randomUUID(); return 'id-'+Math.random().toString(36).slice(2,11); }
 
-    function formatEventDate(d) {
-        const day = d.getDate();
-        return `${weekdayFmt.format(d)} ${day}${getOrdinal(day)} ${d.toLocaleString('en-US',{month:'long'})} ${d.getFullYear()}`;
-    }
-
-    function getCountdownLabel(diff) {
-        if (diff < 0)  return `${Math.abs(diff)} day${Math.abs(diff)===1?'':'s'} ago`;
-        if (diff === 0) return 'Today';
-        if (diff === 1) return 'Tomorrow';
-        return `${diff} days to go`;
-    }
-
-    function getTimingClass(diff) {
-        if (diff < 0)   return 'is-past';
-        if (diff === 0) return 'is-today';
-        if (diff <= 7)  return 'is-upcoming-soon';
-        if (diff <= 30) return 'is-upcoming-mid';
-        return 'is-upcoming-far';
-    }
-
-    function newId() {
-        return Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-    }
-
-    // ══════════════════════════════════════════════════════════
-    //  GITHUB API
-    // ══════════════════════════════════════════════════════════
-    async function loadEventsFromGitHub() {
-        const url = `https://raw.githubusercontent.com/${GITHUB_OWNER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${GITHUB_FILE}?t=${Date.now()}`;
-        const res = await fetch(url);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-    }
-
-async function saveEventsToGitHub() {
-    showToast('Saving…');
-    try {
-        const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-        const shaRes = await fetch(apiUrl, {
-            headers: { 'Accept': 'application/vnd.github.v3+json' }
-        });
-        if (!shaRes.ok) throw new Error('Could not fetch file SHA');
-        const { sha } = await shaRes.json();
-
-        const content = btoa(unescape(encodeURIComponent(JSON.stringify(allEvents, null, 2))));
-
-        const res = await fetch('/.netlify/functions/save-events', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content, sha })
-        });
-        if (!res.ok) throw new Error('Save failed');
-        showToast('✓ Saved!');
-    } catch (err) {
-        showToast('✕ Save failed', true);
-        console.error(err);
-    }
-}
-
-    // ══════════════════════════════════════════════════════════
-    //  TOAST
-    // ══════════════════════════════════════════════════════════
-    let toastTimer = null;
-    function showToast(msg, isError = false) {
-        const el = document.getElementById('save-toast');
+    var toastTimer = null;
+    function showToast(msg, isError) {
+        var el = document.getElementById('save-toast');
         el.textContent = msg;
-        el.className   = 'save-toast' + (isError ? ' is-error' : '');
-        el.hidden      = false;
+        el.className = 'save-toast' + (isError ? ' is-error' : '');
+        el.hidden = false;
         clearTimeout(toastTimer);
-        toastTimer = setTimeout(() => { el.hidden = true; }, isError ? 5000 : 2500);
+        toastTimer = setTimeout(function() { el.hidden = true; }, isError ? 5000 : 2500);
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  PIN
+    function loadEventsFromGitHub() {
+        var url = 'https://raw.githubusercontent.com/'+GITHUB_OWNER+'/'+GITHUB_REPO+'/'+GITHUB_BRANCH+'/'+GITHUB_FILE+'?t='+Date.now();
+        return fetch(url).then(function(res) {
+            if (!res.ok) throw new Error('HTTP '+res.status);
+            return res.json();
+        });
+    }
 
-let pinResolve = null;
+    function saveEventsToGitHub() {
+        showToast('Saving…');
+        var apiUrl = 'https://api.github.com/repos/'+GITHUB_OWNER+'/'+GITHUB_REPO+'/contents/'+GITHUB_FILE;
+        return fetch(apiUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } })
+            .then(function(res) { if(!res.ok) throw new Error('SHA fetch failed'); return res.json(); })
+            .then(function(fileInfo) {
+                var sha     = fileInfo.sha;
+                var content = btoa(unescape(encodeURIComponent(JSON.stringify(allEvents, null, 2))));
+                return fetch('/.netlify/functions/save-events', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: content, sha: sha })
+                });
+            })
+            .then(function(res) {
+                if (!res.ok) throw new Error('Save failed');
+                showToast('✓ Saved!');
+            })
+            .catch(function(err) {
+                showToast('✕ Save failed', true);
+                console.error(err);
+            });
+    }
 
-function setupPinModal() {
-    const modal     = document.getElementById('pin-modal');
-    const box       = document.getElementById('pin-box');
-    const input     = document.getElementById('pin-input');
-    const errorEl   = document.getElementById('pin-error');
-    const submitBtn = document.getElementById('pin-submit');
-    const cancelBtn = document.getElementById('pin-cancel');
-
-    submitBtn.addEventListener('click', () => {
-        if (!pinResolve) return;
-        if (input.value === EDIT_PIN) {
-            sessionUnlocked  = true;
-            modal.hidden     = true;
-            input.value      = '';
-            errorEl.hidden   = true;
-            const r = pinResolve;
-            pinResolve = null;
-            r(true);
-        } else {
-            errorEl.hidden = false;
-            input.value    = '';
-            box.classList.add('shake');
-            setTimeout(() => box.classList.remove('shake'), 400);
-            input.focus();
-        }
-    });
-
-    cancelBtn.addEventListener('click', () => {
-        if (!pinResolve) return;
-        modal.hidden   = true;
-        input.value    = '';
-        errorEl.hidden = true;
-        const r = pinResolve;
-        pinResolve = null;
-        r(false);
-    });
-
-    input.addEventListener('keydown', e => {
-        if (e.key === 'Enter')  submitBtn.click();
-        if (e.key === 'Escape') cancelBtn.click();
-    });
-}
-
-
-    function requirePin() {
-    return new Promise((resolve) => {
-        if (sessionUnlocked) { resolve(true); return; }
-        const modal   = document.getElementById('pin-modal');
-        const input   = document.getElementById('pin-input');
-        const errorEl = document.getElementById('pin-error');
-        pinResolve     = resolve;
-        modal.hidden   = false;
-        input.value    = '';
-        errorEl.hidden = true;
-        setTimeout(() => input.focus(), 50);
-    });
-}
-
-    // ══════════════════════════════════════════════════════════
-    //  RENDER
-    // ══════════════════════════════════════════════════════════
     function normaliseEvents(raw) {
-        return raw
-            .map(e => ({ ...e, jsDate: new Date(e.date + 'T00:00:00') }))
-            .filter(e => !isNaN(e.jsDate.getTime()))
-            .sort((a, b) => a.jsDate - b.jsDate || a.title.localeCompare(b.title));
+        return raw.map(function(e) {
+            return { id:e.id, date:e.date, title:e.title, private:e.private, jsDate:new Date(e.date+'T00:00:00') };
+        }).filter(function(e) { return !isNaN(e.jsDate.getTime()); })
+          .sort(function(a,b) { return a.jsDate-b.jsDate||a.title.localeCompare(b.title); });
     }
 
     function renderAll() {
-        const items    = normaliseEvents(allEvents);
-        const upcoming = items.filter(e => Math.round((e.jsDate - today) / oneDay) >= 0);
-        const past     = items.filter(e => Math.round((e.jsDate - today) / oneDay) < 0);
-
-        document.getElementById('event-count').textContent = `${upcoming.length} events scheduled`;
-        document.getElementById('past-count').textContent  = `${past.length} past event${past.length===1?'':'s'}`;
-
+        var items    = normaliseEvents(allEvents);
+        var upcoming = items.filter(function(e){return Math.round((e.jsDate-today)/oneDay)>=0;});
+        var past     = items.filter(function(e){return Math.round((e.jsDate-today)/oneDay)<0;});
+        document.getElementById('event-count').textContent = upcoming.length+' events scheduled';
+        document.getElementById('past-count').textContent  = past.length+' past event'+(past.length===1?'':'s');
         renderAgenda(items);
         renderNextEvent(items);
     }
 
     function renderNextEvent(items) {
-        const next = items.find(e => Math.round((e.jsDate - today) / oneDay) >= 0);
-        const daysEl  = document.getElementById('next-event-days');
-        const titleEl = document.getElementById('next-event-title');
-        if (!next) { daysEl.textContent = '—'; titleEl.textContent = 'No future events found'; return; }
-        const diff = Math.round((next.jsDate - today) / oneDay);
-        daysEl.textContent  = diff === 0 ? 'Today' : diff === 1 ? '1 day' : `${diff} days`;
-        // Mask private title in hero if not unlocked
-        const displayTitle = (next.private && !sessionUnlocked) ? 'Private event' : next.title;
-        titleEl.textContent = `${displayTitle} · ${dateFmt.format(next.jsDate)}`;
+        var next = null;
+        for (var i=0;i<items.length;i++) { if(Math.round((items[i].jsDate-today)/oneDay)>=0){next=items[i];break;} }
+        if (!next) { document.getElementById('next-event-days').textContent='—'; document.getElementById('next-event-title').textContent='No future events'; return; }
+        var diff = Math.round((next.jsDate-today)/oneDay);
+        document.getElementById('next-event-days').textContent  = diff===0?'Today':diff===1?'1 day':diff+' days';
+        document.getElementById('next-event-title').textContent = next.title+' · '+dateFmt.format(next.jsDate);
     }
 
     function renderAgenda(items) {
-        const grid = document.getElementById('month-grid');
+        var grid = document.getElementById('month-grid');
         grid.innerHTML = '';
+        if (!items.length) { grid.innerHTML='<div class="empty-state">No events yet — add one above!</div>'; document.getElementById('agenda-range').textContent='Agenda range: no dates yet'; return; }
+        var pastItems     = items.filter(function(e){return Math.round((e.jsDate-today)/oneDay)<0;});
+        var upcomingItems = items.filter(function(e){return Math.round((e.jsDate-today)/oneDay)>=0;});
 
-        if (items.length === 0) {
-            grid.innerHTML = '<div class="empty-state">No events yet — add one above!</div>';
-            document.getElementById('agenda-range').textContent = 'Agenda range: no dates yet';
-            return;
+        var upSec = document.createElement('section'); upSec.className='agenda-subsection';
+        var upHead = document.createElement('div'); upHead.className='section-toggle-row';
+        upHead.innerHTML = '<h3>Current and upcoming events</h3><div class="small-note">'+upcomingItems.length+' item'+(upcomingItems.length===1?'':'s')+'</div>';
+        upSec.appendChild(upHead);
+        if (upcomingItems.length>0) appendMonthSections(upcomingItems,upSec);
+        else { var ep=document.createElement('div');ep.className='empty-state';ep.textContent='No upcoming events.';upSec.appendChild(ep); }
+        grid.appendChild(upSec);
+
+        if (pastItems.length>0) {
+            var pastSec=document.createElement('section'); pastSec.className='agenda-subsection';
+            var trow=document.createElement('div'); trow.className='section-toggle-row';
+            var hd=document.createElement('h3'); hd.textContent='Past events';
+            var tbtn=document.createElement('button'); tbtn.className='history-toggle-btn'; tbtn.type='button'; tbtn.textContent='Expand ('+pastItems.length+')';
+            trow.append(hd,tbtn);
+            var hcont=document.createElement('div'); hcont.className='history-container collapsed';
+            appendMonthSections(pastItems,hcont);
+            tbtn.addEventListener('click', function() { var c=hcont.classList.contains('collapsed'); hcont.classList.toggle('collapsed',!c); tbtn.textContent=c?'Compress':'Expand ('+pastItems.length+')'; });
+            pastSec.append(trow,hcont); grid.appendChild(pastSec);
         }
-
-        const pastItems     = items.filter(e => Math.round((e.jsDate - today) / oneDay) < 0);
-        const upcomingItems = items.filter(e => Math.round((e.jsDate - today) / oneDay) >= 0);
-
-        // Upcoming section
-        const upcomingSec = document.createElement('section');
-        upcomingSec.className = 'agenda-subsection';
-
-        const upHead = document.createElement('div');
-        upHead.className = 'section-toggle-row';
-        upHead.innerHTML = `<h3>Current and upcoming events</h3><div class="small-note">${upcomingItems.length} item${upcomingItems.length===1?'':'s'}</div>`;
-        upcomingSec.appendChild(upHead);
-
-        if (upcomingItems.length > 0) {
-            appendMonthSections(upcomingItems, upcomingSec);
-        } else {
-            const empty = document.createElement('div');
-            empty.className = 'empty-state';
-            empty.textContent = 'No upcoming events.';
-            upcomingSec.appendChild(empty);
-        }
-        grid.appendChild(upcomingSec);
-
-        // Past section
-        if (pastItems.length > 0) {
-            const pastSec = document.createElement('section');
-            pastSec.className = 'agenda-subsection';
-
-            const toggleRow = document.createElement('div');
-            toggleRow.className = 'section-toggle-row';
-
-            const heading = document.createElement('h3');
-            heading.textContent = 'Past events';
-
-            const toggleBtn = document.createElement('button');
-            toggleBtn.className = 'history-toggle-btn';
-            toggleBtn.type = 'button';
-            toggleBtn.textContent = `Expand (${pastItems.length})`;
-            toggleBtn.setAttribute('aria-expanded', 'false');
-
-            toggleRow.append(heading, toggleBtn);
-
-            const historyContainer = document.createElement('div');
-            historyContainer.className = 'history-container collapsed';
-            appendMonthSections(pastItems, historyContainer);
-
-            toggleBtn.addEventListener('click', () => {
-                const collapsed = historyContainer.classList.contains('collapsed');
-                historyContainer.classList.toggle('collapsed', !collapsed);
-                toggleBtn.textContent = collapsed ? 'Compress' : `Expand (${pastItems.length})`;
-                toggleBtn.setAttribute('aria-expanded', String(collapsed));
-            });
-
-            pastSec.append(toggleRow, historyContainer);
-            grid.appendChild(pastSec);
-        }
-
-        // Agenda range
-        const first = items[0], last = items[items.length - 1];
-        document.getElementById('agenda-range').textContent =
-            `Agenda range: ${monthFmt.format(first.jsDate)} to ${monthFmt.format(last.jsDate)}`;
+        var first=items[0],last=items[items.length-1];
+        document.getElementById('agenda-range').textContent='Agenda range: '+monthFmt.format(first.jsDate)+' to '+monthFmt.format(last.jsDate);
     }
 
     function appendMonthSections(items, parent) {
-        const grouped = new Map();
-        items.forEach(e => {
-            const key = `${e.jsDate.getFullYear()}-${String(e.jsDate.getMonth()+1).padStart(2,'0')}`;
-            if (!grouped.has(key)) grouped.set(key, []);
-            grouped.get(key).push(e);
-        });
-
-        grouped.forEach(monthEvents => {
-            const sec = document.createElement('section');
-            sec.className = 'month-section';
-
-            const header = document.createElement('div');
-            header.className = 'month-header';
-
-            const title = document.createElement('div');
-            title.className = 'month-title';
-            title.textContent = monthFmt.format(monthEvents[0].jsDate);
-
-            const count = document.createElement('div');
-            count.className = 'month-count';
-            count.textContent = `${monthEvents.length} event${monthEvents.length===1?'':'s'}`;
-
-            header.append(title, count);
-
-            const list = document.createElement('div');
-            list.className = 'event-list';
-            monthEvents.forEach(e => list.appendChild(buildEventRow(e)));
-
-            sec.append(header, list);
-            parent.appendChild(sec);
+        var grouped = new Map();
+        items.forEach(function(e) { var key=e.jsDate.getFullYear()+'-'+String(e.jsDate.getMonth()+1).padStart(2,'0'); if(!grouped.has(key))grouped.set(key,[]); grouped.get(key).push(e); });
+        grouped.forEach(function(monthEvents) {
+            var sec=document.createElement('section'); sec.className='month-section';
+            var hdr=document.createElement('div'); hdr.className='month-header';
+            var ttl=document.createElement('div'); ttl.className='month-title'; ttl.textContent=monthFmt.format(monthEvents[0].jsDate);
+            var cnt=document.createElement('div'); cnt.className='month-count'; cnt.textContent=monthEvents.length+' event'+(monthEvents.length===1?'':'s');
+            hdr.append(ttl,cnt);
+            var lst=document.createElement('div'); lst.className='event-list';
+            monthEvents.forEach(function(e){lst.appendChild(buildEventRow(e));});
+            sec.append(hdr,lst); parent.appendChild(sec);
         });
     }
 
     function buildEventRow(event) {
-        const diff     = Math.round((event.jsDate - today) / oneDay);
-        const isHidden = event.private && !sessionUnlocked;
+        var diff=Math.round((event.jsDate-today)/oneDay);
+        var row=document.createElement('div'); row.className='event-item '+getTimingClass(diff); row.dataset.id=event.id;
+        var dateEl=document.createElement('div'); dateEl.className='event-date'; dateEl.textContent=formatEventDate(event.jsDate);
+        var nameEl=document.createElement('div'); nameEl.className='event-name'; nameEl.textContent=event.title;
+        var metaEl=document.createElement('div'); metaEl.className='event-meta';
+        var badge=document.createElement('span'); badge.className='countdown-badge'; badge.textContent=getCountdownLabel(diff);
+        var actions=document.createElement('div'); actions.className='event-actions';
 
-        const row = document.createElement('div');
-        row.className = `event-item ${getTimingClass(diff)}`;
-        row.dataset.id = event.id;
+        var editBtn=document.createElement('button'); editBtn.className='act-btn'; editBtn.title='Edit'; editBtn.textContent='✏';
+        editBtn.addEventListener('click', function(){ enterEditMode(row,event); });
 
-        // Date
-        const dateEl = document.createElement('div');
-        dateEl.className = 'event-date';
-        dateEl.textContent = formatEventDate(event.jsDate);
-
-        // Title
-        const nameEl = document.createElement('div');
-        nameEl.className = 'event-name' + (isHidden ? ' is-private' : '');
-        nameEl.textContent = isHidden ? '🔒 Private event' : event.title;
-
-        // Meta: badge + actions
-        const metaEl = document.createElement('div');
-        metaEl.className = 'event-meta';
-
-        const badge = document.createElement('span');
-        badge.className = 'countdown-badge';
-        badge.textContent = getCountdownLabel(diff);
-
-        const actions = document.createElement('div');
-        actions.className = 'event-actions';
-
-        const editBtn = document.createElement('button');
-        editBtn.className = 'act-btn';
-        editBtn.title = 'Edit';
-        editBtn.textContent = '✏';
-        editBtn.addEventListener('click', async () => {
-            const ok = await requirePin();
-            if (!ok) return;
-            enterEditMode(row, event);
+        var delBtn=document.createElement('button'); delBtn.className='act-btn act-del'; delBtn.title='Delete'; delBtn.textContent='✕';
+        delBtn.addEventListener('click', function(){
+            if(!confirm('Delete "'+event.title+'"?')) return;
+            allEvents = allEvents.filter(function(e){return e.id!==event.id;});
+            saveEventsToGitHub().then(function(){renderAll();});
         });
 
-        const delBtn = document.createElement('button');
-        delBtn.className = 'act-btn act-del';
-        delBtn.title = 'Delete';
-        delBtn.textContent = '✕';
-        delBtn.addEventListener('click', async () => {
-            const ok = await requirePin();
-            if (!ok) return;
-            if (!confirm(`Delete "${event.title}"?`)) return;
-            allEvents = allEvents.filter(e => e.id !== event.id);
-            await saveEventsToGitHub();
-            renderAll();
-        });
-
-        actions.append(editBtn, delBtn);
-        metaEl.append(badge, actions);
-        row.append(dateEl, nameEl, metaEl);
+        actions.append(editBtn,delBtn); metaEl.append(badge,actions); row.append(dateEl,nameEl,metaEl);
         return row;
     }
 
     function enterEditMode(rowEl, event) {
-        rowEl.classList.add('is-editing');
-        rowEl.innerHTML = '';
-
-        const editRow = document.createElement('div');
-        editRow.className = 'edit-row';
-
-        const dateIn = document.createElement('input');
-        dateIn.type  = 'date';
-        dateIn.value = event.date;
-        dateIn.className = 'edit-input edit-input-date';
-
-        const titleIn = document.createElement('input');
-        titleIn.type  = 'text';
-        titleIn.value = event.title;
-        titleIn.className = 'edit-input edit-input-title';
-        titleIn.maxLength = 120;
-
-        const privLabel = document.createElement('label');
-        privLabel.className = 'edit-private-label';
-        const privChk = document.createElement('input');
-        privChk.type    = 'checkbox';
-        privChk.checked = !!event.private;
-        privLabel.append(privChk, document.createTextNode(' Private'));
-
-        const saveBtn = document.createElement('button');
-        saveBtn.className = 'act-btn act-save';
-        saveBtn.title = 'Save';
-        saveBtn.textContent = '✓';
-        saveBtn.addEventListener('click', async () => {
-            const d = dateIn.value.trim();
-            const t = titleIn.value.trim();
-            if (!d || !t) { alert('Date and title are both required.'); return; }
-            const idx = allEvents.findIndex(e => e.id === event.id);
-            if (idx > -1) allEvents[idx] = { id: event.id, date: d, title: t, private: privChk.checked };
-            await saveEventsToGitHub();
-            renderAll();
+        rowEl.classList.add('is-editing'); rowEl.innerHTML='';
+        var er=document.createElement('div'); er.className='edit-row';
+        var di=document.createElement('input'); di.type='date'; di.value=event.date; di.className='edit-input edit-input-date';
+        var ti=document.createElement('input'); ti.type='text'; ti.value=event.title; ti.className='edit-input edit-input-title'; ti.maxLength=120;
+        var pl=document.createElement('label'); pl.className='edit-private-label';
+        var pc=document.createElement('input'); pc.type='checkbox'; pc.checked=!!event.private;
+        pl.append(pc, document.createTextNode(' Private'));
+        var sb=document.createElement('button'); sb.className='act-btn act-save'; sb.title='Save'; sb.textContent='✓';
+        sb.addEventListener('click', function(){
+            var d=di.value.trim(), t=ti.value.trim();
+            if(!d||!t){alert('Date and title are required.');return;}
+            var idx=allEvents.findIndex(function(e){return e.id===event.id;});
+            if(idx>-1) allEvents[idx]={id:event.id,date:d,title:t,private:pc.checked};
+            saveEventsToGitHub().then(function(){renderAll();});
         });
-
-        const cancelBtn = document.createElement('button');
-        cancelBtn.className = 'act-btn act-cancel';
-        cancelBtn.title = 'Cancel';
-        cancelBtn.textContent = '✗';
-        cancelBtn.addEventListener('click', () => renderAll());
-
-        editRow.append(dateIn, titleIn, privLabel, saveBtn, cancelBtn);
-        rowEl.appendChild(editRow);
-        titleIn.focus();
+        var cb=document.createElement('button'); cb.className='act-btn act-cancel'; cb.title='Cancel'; cb.textContent='✗';
+        cb.addEventListener('click', function(){renderAll();});
+        er.append(di,ti,pl,sb,cb); rowEl.appendChild(er); ti.focus();
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  ADD EVENT FORM
-    // ══════════════════════════════════════════════════════════
     function setupAddEventForm() {
-        const addBtn    = document.getElementById('add-event-btn');
-        const form      = document.getElementById('add-event-form');
-        const saveBtn   = document.getElementById('add-event-save');
-        const cancelBtn = document.getElementById('add-event-cancel');
-        const dateIn    = document.getElementById('add-date');
-        const titleIn   = document.getElementById('add-title');
-        const privChk   = document.getElementById('add-private');
+        var addBtn    = document.getElementById('add-event-btn');
+        var form      = document.getElementById('add-event-form');
+        var saveBtn   = document.getElementById('add-event-save');
+        var cancelBtn = document.getElementById('add-event-cancel');
+        var dateIn    = document.getElementById('add-date');
+        var titleIn   = document.getElementById('add-title');
+        var privChk   = document.getElementById('add-private');
 
-        addBtn.addEventListener('click', async () => {
-            const ok = await requirePin();
-            if (!ok) return;
-            form.hidden = false;
-            dateIn.focus();
+        addBtn.addEventListener('click', function(){ form.hidden=false; dateIn.focus(); });
+        cancelBtn.addEventListener('click', function(){ form.hidden=true; dateIn.value=''; titleIn.value=''; privChk.checked=false; });
+        saveBtn.addEventListener('click', function(){
+            var d=dateIn.value.trim(), t=titleIn.value.trim();
+            if(!d||!t){alert('Please enter both a date and a title.');return;}
+            allEvents.push({id:newId(),date:d,title:t,private:privChk.checked});
+            form.hidden=true; dateIn.value=''; titleIn.value=''; privChk.checked=false;
+            saveEventsToGitHub().then(function(){renderAll();});
         });
-
-        cancelBtn.addEventListener('click', () => {
-            form.hidden  = true;
-            dateIn.value = '';
-            titleIn.value = '';
-            privChk.checked = false;
-        });
-
-        saveBtn.addEventListener('click', async () => {
-            const d = dateIn.value.trim();
-            const t = titleIn.value.trim();
-            if (!d || !t) { alert('Please enter both a date and a title.'); return; }
-            allEvents.push({ id: newId(), date: d, title: t, private: privChk.checked });
-            form.hidden  = true;
-            dateIn.value = '';
-            titleIn.value = '';
-            privChk.checked = false;
-            await saveEventsToGitHub();
-            renderAll();
-        });
-
-        // Save on Enter in title field
-        titleIn.addEventListener('keydown', e => { if (e.key === 'Enter') saveBtn.click(); });
+        titleIn.addEventListener('keydown', function(e){ if(e.key==='Enter') saveBtn.click(); });
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  THEME
-    // ══════════════════════════════════════════════════════════
     function setupThemeToggle() {
-        const btn = document.getElementById('themeToggle');
-        if (localStorage.getItem(THEME_STORAGE_KEY) === 'dark') document.body.classList.add('dark-mode');
+        var btn=document.getElementById('themeToggle');
+        if(localStorage.getItem(THEME_STORAGE_KEY)==='dark') document.body.classList.add('dark-mode');
+        function updateLabel(){ btn.textContent=document.body.classList.contains('dark-mode')?'☀️ Light Mode':'🌙 Dark Mode'; }
         updateLabel();
-        btn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem(THEME_STORAGE_KEY, document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-            updateLabel();
-        });
-        function updateLabel() {
-            btn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
-        }
+        btn.addEventListener('click', function(){ document.body.classList.toggle('dark-mode'); localStorage.setItem(THEME_STORAGE_KEY,document.body.classList.contains('dark-mode')?'dark':'light'); updateLabel(); });
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  TODO LIST
-    // ══════════════════════════════════════════════════════════
-    function safeParseStorage(key, fallback) {
-        try { const r = localStorage.getItem(key); return r ? JSON.parse(r) : fallback; }
-        catch { return fallback; }
-    }
+    function safeParseStorage(key,fallback){ try{var r=localStorage.getItem(key);return r?JSON.parse(r):fallback;}catch(e){return fallback;} }
 
     function setupTodoList() {
-        const input    = document.getElementById('todo-input');
-        const addBtn   = document.getElementById('todo-add');
-        const list     = document.getElementById('todo-list');
-        const summary  = document.getElementById('todo-summary');
-        const clearBtn = document.getElementById('todo-clear-done');
-
-        let todos = safeParseStorage(TODO_STORAGE_KEY, [
-            { id: cid(), text: 'Review April home project dates', done: false },
-            { id: cid(), text: 'Check summer travel planning', done: false },
-            { id: cid(), text: 'Update contractor follow-up notes', done: true }
-        ]);
-
-        function save() { localStorage.setItem(TODO_STORAGE_KEY, JSON.stringify(todos)); }
-
-        function render() {
-            list.innerHTML = '';
-            if (!todos.length) { list.innerHTML = '<div class="empty-state">No tasks yet.</div>'; }
-            else {
-                todos.forEach(todo => {
-                    const item = document.createElement('div');
-                    item.className = `todo-item${todo.done ? ' is-done' : ''}`;
-
-                    const chk = document.createElement('input');
-                    chk.type = 'checkbox'; chk.checked = todo.done;
-                    chk.addEventListener('change', () => { todo.done = chk.checked; save(); render(); });
-
-                    const txt = document.createElement('div');
-                    txt.className = 'todo-text'; txt.textContent = todo.text;
-
-                    const del = document.createElement('button');
-                    del.className = 'todo-delete'; del.type = 'button'; del.textContent = '✕';
-                    del.addEventListener('click', () => { todos = todos.filter(t => t.id !== todo.id); save(); render(); });
-
-                    item.append(chk, txt, del);
-                    list.appendChild(item);
-                });
-            }
-            const done = todos.filter(t => t.done).length;
-            summary.textContent = `${todos.length} task${todos.length===1?'':'s'} · ${done} done`;
+        var input=document.getElementById('todo-input'), addBtn=document.getElementById('todo-add');
+        var list=document.getElementById('todo-list'), summary=document.getElementById('todo-summary'), clearBtn=document.getElementById('todo-clear-done');
+        var todos=safeParseStorage(TODO_STORAGE_KEY,[{id:cid(),text:'Review April home project dates',done:false},{id:cid(),text:'Check summer travel planning',done:false},{id:cid(),text:'Update contractor follow-up notes',done:true}]);
+        function save(){ localStorage.setItem(TODO_STORAGE_KEY,JSON.stringify(todos)); }
+        function render(){
+            list.innerHTML='';
+            if(!todos.length){list.innerHTML='<div class="empty-state">No tasks yet.</div>';}
+            else { todos.forEach(function(todo){ var item=document.createElement('div'); item.className='todo-item'+(todo.done?' is-done':''); var chk=document.createElement('input'); chk.type='checkbox'; chk.checked=todo.done; chk.addEventListener('change',function(){todo.done=chk.checked;save();render();}); var txt=document.createElement('div'); txt.className='todo-text'; txt.textContent=todo.text; var del=document.createElement('button'); del.className='todo-delete'; del.type='button'; del.textContent='✕'; del.addEventListener('click',function(){todos=todos.filter(function(t){return t.id!==todo.id;});save();render();}); item.append(chk,txt,del); list.appendChild(item); }); }
+            var done=todos.filter(function(t){return t.done;}).length;
+            summary.textContent=todos.length+' task'+(todos.length===1?'':'s')+' · '+done+' done';
         }
-
-        function add() {
-            const v = input.value.trim();
-            if (!v) return;
-            todos.unshift({ id: cid(), text: v, done: false });
-            input.value = '';
-            save(); render(); input.focus();
-        }
-
-        addBtn.addEventListener('click', add);
-        input.addEventListener('keydown', e => { if (e.key === 'Enter') add(); });
-        clearBtn.addEventListener('click', () => { todos = todos.filter(t => !t.done); save(); render(); });
+        function add(){ var v=input.value.trim(); if(!v)return; todos.unshift({id:cid(),text:v,done:false}); input.value=''; save(); render(); input.focus(); }
+        addBtn.addEventListener('click',add);
+        input.addEventListener('keydown',function(e){if(e.key==='Enter')add();});
+        clearBtn.addEventListener('click',function(){todos=todos.filter(function(t){return !t.done;});save();render();});
         render();
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  SCRATCHPAD
-    // ══════════════════════════════════════════════════════════
     function setupScratchpad() {
-        const pad    = document.getElementById('scratchpad');
-        const status = document.getElementById('scratchpad-status');
-        pad.value    = localStorage.getItem(NOTES_STORAGE_KEY) || '';
-        let timer = null;
-        pad.addEventListener('input', () => {
-            status.textContent = 'Saving...';
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                localStorage.setItem(NOTES_STORAGE_KEY, pad.value);
-                status.textContent = `Saved · ${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`;
-            }, 180);
-        });
+        var pad=document.getElementById('scratchpad'), status=document.getElementById('scratchpad-status');
+        pad.value=localStorage.getItem(NOTES_STORAGE_KEY)||'';
+        var timer=null;
+        pad.addEventListener('input',function(){ status.textContent='Saving...'; clearTimeout(timer); timer=setTimeout(function(){ localStorage.setItem(NOTES_STORAGE_KEY,pad.value); status.textContent='Saved · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}); },180); });
     }
 
-    // ══════════════════════════════════════════════════════════
-    //  WEATHER
-    // ══════════════════════════════════════════════════════════
-    const weatherLocations = [
-        { label: 'Zoetermeer, NL',   latitude: 52.0575,  longitude: 4.4931   },
-        { label: 'Zuid Amsterdam, NL', latitude: 52.3300, longitude: 4.8700  },
-        { label: 'Manchester, UK',   latitude: 53.4808,  longitude: -2.2426  },
-        { label: 'London, UK',       latitude: 51.5072,  longitude: -0.1276  },
-        { label: 'Paris, FR',        latitude: 48.8566,  longitude: 2.3522   },
-        { label: 'Kuala Lumpur, MY', latitude: 3.1390,   longitude: 101.6869 },
-        { label: 'Shenzhen, CN',     latitude: 22.5431,  longitude: 114.0579 },
-        { label: 'Anan, JP',         latitude: 33.9167,  longitude: 134.6667 }
+    var weatherLocations=[
+        {label:'Zoetermeer, NL',latitude:52.0575,longitude:4.4931},
+        {label:'Zuid Amsterdam, NL',latitude:52.3300,longitude:4.8700},
+        {label:'Manchester, UK',latitude:53.4808,longitude:-2.2426},
+        {label:'London, UK',latitude:51.5072,longitude:-0.1276},
+        {label:'Paris, FR',latitude:48.8566,longitude:2.3522},
+        {label:'Kuala Lumpur, MY',latitude:3.1390,longitude:101.6869},
+        {label:'Shenzhen, CN',latitude:22.5431,longitude:114.0579},
+        {label:'Anan, JP',latitude:33.9167,longitude:134.6667}
     ];
 
     function setupWeather() {
-        const sel   = document.getElementById('weather-location');
-        const panel = document.getElementById('weather-panel');
-        const saved = localStorage.getItem(WEATHER_STORAGE_KEY) || weatherLocations[0].label;
-
-        weatherLocations.forEach(loc => {
-            const opt = document.createElement('option');
-            opt.value = loc.label; opt.textContent = loc.label;
-            if (loc.label === saved) opt.selected = true;
-            sel.appendChild(opt);
-        });
-
-        async function load(label) {
-            const loc = weatherLocations.find(l => l.label === label) || weatherLocations[0];
-            panel.innerHTML = '<div class="weather-loading">Loading weather...</div>';
-            localStorage.setItem(WEATHER_STORAGE_KEY, loc.label);
-            const url = new URL('https://api.open-meteo.com/v1/forecast');
-            url.searchParams.set('latitude',  loc.latitude);
-            url.searchParams.set('longitude', loc.longitude);
-            url.searchParams.set('current',  'temperature_2m,apparent_temperature,weather_code,wind_speed_10m');
-            url.searchParams.set('daily',    'weather_code,temperature_2m_max,temperature_2m_min');
-            url.searchParams.set('timezone', 'auto');
-            url.searchParams.set('forecast_days', '5');
-            try {
-                const res = await fetch(url.toString());
-                if (!res.ok) throw new Error('Weather failed');
-                renderWeather(await res.json(), loc.label);
-            } catch {
-                panel.innerHTML = '<div class="weather-error">Could not load weather. Check connection.</div>';
-            }
+        var sel=document.getElementById('weather-location'), panel=document.getElementById('weather-panel');
+        var saved=localStorage.getItem(WEATHER_STORAGE_KEY)||weatherLocations[0].label;
+        weatherLocations.forEach(function(loc){ var opt=document.createElement('option'); opt.value=loc.label; opt.textContent=loc.label; if(loc.label===saved)opt.selected=true; sel.appendChild(opt); });
+        function load(label) {
+            var loc=weatherLocations.find(function(l){return l.label===label;})||weatherLocations[0];
+            panel.innerHTML='<div class="weather-loading">Loading weather...</div>';
+            localStorage.setItem(WEATHER_STORAGE_KEY,loc.label);
+            var url=new URL('https://api.open-meteo.com/v1/forecast');
+            url.searchParams.set('latitude',loc.latitude); url.searchParams.set('longitude',loc.longitude);
+            url.searchParams.set('current','temperature_2m,apparent_temperature,weather_code,wind_speed_10m');
+            url.searchParams.set('daily','weather_code,temperature_2m_max,temperature_2m_min');
+            url.searchParams.set('timezone','auto'); url.searchParams.set('forecast_days','5');
+            fetch(url.toString()).then(function(res){ if(!res.ok)throw new Error('Weather failed'); return res.json(); })
+                .then(function(data){ renderWeather(data,loc.label); })
+                .catch(function(){ panel.innerHTML='<div class="weather-error">Could not load weather.</div>'; });
         }
-
-        function renderWeather(data, label) {
-            const cur  = data.current || {};
-            const days = (data.daily?.time || []).map((t, i) => ({
-                time: t,
-                code: data.daily.weather_code?.[i],
-                max:  data.daily.temperature_2m_max?.[i],
-                min:  data.daily.temperature_2m_min?.[i]
-            }));
-            const cw = weatherInfo(cur.weather_code);
-            const summary = `<div class="weather-summary">
-                <div class="weather-icon">${cw.icon}</div>
-                <div>
-                    <div class="weather-temp">${fTemp(cur.temperature_2m)}</div>
-                    <div class="weather-text">${cw.label} in ${label}</div>
-                    <div class="weather-meta">Feels like ${fTemp(cur.apparent_temperature)} · Wind ${fWind(cur.wind_speed_10m)}</div>
-                </div></div>`;
-            const stats = `<div class="weather-grid">
-                <div class="weather-stat"><span class="stat-label">Today high</span><span class="stat-value">${fTemp(days[0]?.max)}</span></div>
-                <div class="weather-stat"><span class="stat-label">Today low</span><span class="stat-value">${fTemp(days[0]?.min)}</span></div>
-                <div class="weather-stat"><span class="stat-label">Updated</span><span class="stat-value">${new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}</span></div>
-            </div>`;
-            const forecast = days.map((d, i) => {
-                const date = new Date(d.time + 'T12:00:00');
-                const w    = weatherInfo(d.code);
-                const lbl  = i === 0 ? 'Today' : date.toLocaleDateString('en-US',{weekday:'short'});
-                return `<div class="forecast-item">
-                    <div class="forecast-day">${lbl}</div>
-                    <div class="forecast-icon">${w.icon}</div>
-                    <div><div class="forecast-temps">${fTemp(d.max)} / ${fTemp(d.min)}</div><div class="forecast-text">${w.label}</div></div>
-                </div>`;
-            }).join('');
-            panel.innerHTML = `${summary}${stats}<div class="forecast-list">${forecast}</div>`;
+        function renderWeather(data,label) {
+            var cur=data.current||{};
+            var days=(data.daily&&data.daily.time||[]).map(function(t,i){return{time:t,code:data.daily.weather_code&&data.daily.weather_code[i],max:data.daily.temperature_2m_max&&data.daily.temperature_2m_max[i],min:data.daily.temperature_2m_min&&data.daily.temperature_2m_min[i]};});
+            var cw=weatherInfo(cur.weather_code);
+            var summary='<div class="weather-summary"><div class="weather-icon">'+cw.icon+'</div><div><div class="weather-temp">'+fTemp(cur.temperature_2m)+'</div><div class="weather-text">'+cw.label+' in '+label+'</div><div class="weather-meta">Feels like '+fTemp(cur.apparent_temperature)+' · Wind '+fWind(cur.wind_speed_10m)+'</div></div></div>';
+            var stats='<div class="weather-grid"><div class="weather-stat"><span class="stat-label">Today high</span><span class="stat-value">'+fTemp(days[0]&&days[0].max)+'</span></div><div class="weather-stat"><span class="stat-label">Today low</span><span class="stat-value">'+fTemp(days[0]&&days[0].min)+'</span></div><div class="weather-stat"><span class="stat-label">Updated</span><span class="stat-value">'+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</span></div></div>';
+            var forecast=days.map(function(d,i){var date=new Date(d.time+'T12:00:00');var w=weatherInfo(d.code);var lbl=i===0?'Today':date.toLocaleDateString('en-US',{weekday:'short'});return '<div class="forecast-item"><div class="forecast-day">'+lbl+'</div><div class="forecast-icon">'+w.icon+'</div><div><div class="forecast-temps">'+fTemp(d.max)+' / '+fTemp(d.min)+'</div><div class="forecast-text">'+w.label+'</div></div></div>';}).join('');
+            panel.innerHTML=summary+stats+'<div class="forecast-list">'+forecast+'</div>';
         }
-
-        sel.addEventListener('change', () => load(sel.value));
+        sel.addEventListener('change',function(){load(sel.value);});
         load(sel.value);
     }
 
-    function fTemp(v) { return typeof v === 'number' ? `${Math.round(v)}°C` : '—'; }
-    function fWind(v) { return typeof v === 'number' ? `${Math.round(v)} km/h` : '—'; }
-
-    function weatherInfo(code) {
-        const m = {
-            0:{label:'Clear sky',icon:'☀️'},1:{label:'Mostly clear',icon:'🌤️'},2:{label:'Partly cloudy',icon:'⛅'},
-            3:{label:'Overcast',icon:'☁️'},45:{label:'Fog',icon:'🌫️'},48:{label:'Rime fog',icon:'🌫️'},
-            51:{label:'Light drizzle',icon:'🌦️'},53:{label:'Drizzle',icon:'🌦️'},55:{label:'Dense drizzle',icon:'🌧️'},
-            61:{label:'Light rain',icon:'🌦️'},63:{label:'Rain',icon:'🌧️'},65:{label:'Heavy rain',icon:'🌧️'},
-            71:{label:'Light snow',icon:'🌨️'},73:{label:'Snow',icon:'🌨️'},75:{label:'Heavy snow',icon:'❄️'},
-            80:{label:'Rain showers',icon:'🌦️'},81:{label:'Rain showers',icon:'🌧️'},82:{label:'Heavy showers',icon:'⛈️'},
-            95:{label:'Thunderstorm',icon:'⛈️'},96:{label:'Storm with hail',icon:'⛈️'},99:{label:'Severe storm',icon:'⛈️'}
-        };
-        return m[code] || { label: 'Unknown', icon: '🌍' };
+    function fTemp(v){return typeof v==='number'?Math.round(v)+'°C':'—';}
+    function fWind(v){return typeof v==='number'?Math.round(v)+' km/h':'—';}
+    function weatherInfo(code){
+        var m={0:{label:'Clear sky',icon:'☀️'},1:{label:'Mostly clear',icon:'🌤️'},2:{label:'Partly cloudy',icon:'⛅'},3:{label:'Overcast',icon:'☁️'},45:{label:'Fog',icon:'🌫️'},48:{label:'Rime fog',icon:'🌫️'},51:{label:'Light drizzle',icon:'🌦️'},53:{label:'Drizzle',icon:'🌦️'},55:{label:'Dense drizzle',icon:'🌧️'},61:{label:'Light rain',icon:'🌦️'},63:{label:'Rain',icon:'🌧️'},65:{label:'Heavy rain',icon:'🌧️'},71:{label:'Light snow',icon:'🌨️'},73:{label:'Snow',icon:'🌨️'},75:{label:'Heavy snow',icon:'❄️'},80:{label:'Rain showers',icon:'🌦️'},81:{label:'Rain showers',icon:'🌧️'},82:{label:'Heavy showers',icon:'⛈️'},95:{label:'Thunderstorm',icon:'⛈️'},96:{label:'Storm with hail',icon:'⛈️'},99:{label:'Severe storm',icon:'⛈️'}};
+        return m[code]||{label:'Unknown',icon:'🌍'};
     }
 
-    function cid() {
-        if (window.crypto?.randomUUID) return window.crypto.randomUUID();
-        return 'id-' + Math.random().toString(36).slice(2, 11);
-    }
-
-    // ══════════════════════════════════════════════════════════
-    //  INIT
-    // ══════════════════════════════════════════════════════════
-    async function init() {
-        setupPinModal(); 
+    function init() {
         setupThemeToggle();
         setupTodoList();
         setupScratchpad();
         setupWeather();
         setupAddEventForm();
-
-        try {
-            allEvents = await loadEventsFromGitHub();
-        } catch (err) {
-            console.error('Failed to load events:', err);
-            document.getElementById('month-grid').innerHTML =
-                '<div class="empty-state">⚠️ Could not load events. Check your internet connection and try refreshing.</div>';
-            return;
-        }
-        renderAll();
+        loadEventsFromGitHub()
+            .then(function(data){ allEvents=data; renderAll(); })
+            .catch(function(err){ console.error('Failed to load events:',err); document.getElementById('month-grid').innerHTML='<div class="empty-state">Could not load events. Check your connection and refresh.</div>'; });
     }
 
     init();
