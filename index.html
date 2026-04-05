@@ -1217,40 +1217,30 @@
         return await res.json();
     }
 
-    async function saveEventsToGitHub() {
-        showToast('Saving…');
-        try {
-            const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
-            const shaRes = await fetch(apiUrl, {
-                headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
-            });
-            if (!shaRes.ok) throw new Error('Could not fetch file SHA');
-            const { sha } = await shaRes.json();
+async function saveEventsToGitHub() {
+    showToast('Saving…');
+    try {
+        const apiUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`;
+        const shaRes = await fetch(apiUrl, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+        if (!shaRes.ok) throw new Error('Could not fetch file SHA');
+        const { sha } = await shaRes.json();
 
-            const json    = JSON.stringify(allEvents, null, 2);
-            const content = btoa(unescape(encodeURIComponent(json)));
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(allEvents, null, 2))));
 
-            const putRes = await fetch(apiUrl, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/vnd.github.v3+json'
-                },
-                body: JSON.stringify({
-                    message: `Update events — ${new Date().toLocaleString()}`,
-                    content,
-                    sha,
-                    branch: GITHUB_BRANCH
-                })
-            });
-            if (!putRes.ok) throw new Error('PUT failed');
-            showToast('✓ Saved!');
-        } catch (err) {
-            showToast('✕ Save failed — check your token', true);
-            console.error('Save error:', err);
-        }
+        const res = await fetch('/.netlify/functions/save-events', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content, sha })
+        });
+        if (!res.ok) throw new Error('Save failed');
+        showToast('✓ Saved!');
+    } catch (err) {
+        showToast('✕ Save failed', true);
+        console.error(err);
     }
+}
 
     // ══════════════════════════════════════════════════════════
     //  TOAST
