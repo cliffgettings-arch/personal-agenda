@@ -1257,59 +1257,55 @@ async function saveEventsToGitHub() {
 
     // ══════════════════════════════════════════════════════════
     //  PIN
-    // ══════════════════════════════════════════════════════════
     function requirePin() {
-        return new Promise((resolve) => {
-            if (sessionUnlocked) { resolve(true); return; }
+    return new Promise((resolve) => {
+        if (sessionUnlocked) { resolve(true); return; }
 
-            const modal    = document.getElementById('pin-modal');
-            const box      = document.getElementById('pin-box');
-            const input    = document.getElementById('pin-input');
-            const errorEl  = document.getElementById('pin-error');
-            const submitBtn = document.getElementById('pin-submit');
-            const cancelBtn = document.getElementById('pin-cancel');
+        const modal     = document.getElementById('pin-modal');
+        const box       = document.getElementById('pin-box');
+        const input     = document.getElementById('pin-input');
+        const errorEl   = document.getElementById('pin-error');
+        const submitBtn = document.getElementById('pin-submit');
+        const cancelBtn = document.getElementById('pin-cancel');
 
-            modal.hidden = false;
-            input.value  = '';
-            errorEl.hidden = true;
-            setTimeout(() => input.focus(), 50);
+        modal.hidden   = false;
+        input.value    = '';
+        errorEl.hidden = true;
+        setTimeout(() => input.focus(), 50);
 
-            function attempt() {
-                if (input.value === EDIT_PIN) {
-                    sessionUnlocked = true;
-                    modal.hidden    = true;
-                    cleanup();
-                    resolve(true);
-                } else {
-                    errorEl.hidden = false;
-                    input.value    = '';
-                    box.classList.add('shake');
-                    setTimeout(() => box.classList.remove('shake'), 400);
-                }
+        function attempt() {
+            if (input.value === EDIT_PIN) {
+                sessionUnlocked = true;
+                modal.hidden    = true;
+                submitBtn.onclick = null;
+                cancelBtn.onclick = null;
+                resolve(true);
+            } else {
+                errorEl.hidden = false;
+                input.value    = '';
+                box.classList.add('shake');
+                setTimeout(() => box.classList.remove('shake'), 400);
             }
+        }
 
-            function cancel() {
-                modal.hidden = true;
-                cleanup();
-                resolve(false);
-            }
+        function cancel() {
+            modal.hidden      = true;
+            input.value       = '';
+            errorEl.hidden    = true;
+            submitBtn.onclick = null;
+            cancelBtn.onclick = null;
+            resolve(false);
+        }
 
-            function onKey(e) {
-                if (e.key === 'Enter')  attempt();
-                if (e.key === 'Escape') cancel();
-            }
+        submitBtn.onclick = attempt;
+        cancelBtn.onclick = cancel;
 
-            function cleanup() {
-                submitBtn.removeEventListener('click', attempt);
-                cancelBtn.removeEventListener('click', cancel);
-                input.removeEventListener('keydown', onKey);
-            }
-
-            submitBtn.addEventListener('click', attempt);
-            cancelBtn.addEventListener('click', cancel);
-            input.addEventListener('keydown', onKey);
-        });
-    }
+        input.onkeydown = (e) => {
+            if (e.key === 'Enter')  attempt();
+            if (e.key === 'Escape') cancel();
+        };
+    });
+}
 
     // ══════════════════════════════════════════════════════════
     //  RENDER
