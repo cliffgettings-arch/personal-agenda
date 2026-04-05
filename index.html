@@ -1257,53 +1257,64 @@ async function saveEventsToGitHub() {
 
     // ══════════════════════════════════════════════════════════
     //  PIN
+
+let pinResolve = null;
+
+function setupPinModal() {
+    const modal     = document.getElementById('pin-modal');
+    const box       = document.getElementById('pin-box');
+    const input     = document.getElementById('pin-input');
+    const errorEl   = document.getElementById('pin-error');
+    const submitBtn = document.getElementById('pin-submit');
+    const cancelBtn = document.getElementById('pin-cancel');
+
+    submitBtn.addEventListener('click', () => {
+        if (!pinResolve) return;
+        if (input.value === EDIT_PIN) {
+            sessionUnlocked  = true;
+            modal.hidden     = true;
+            input.value      = '';
+            errorEl.hidden   = true;
+            const r = pinResolve;
+            pinResolve = null;
+            r(true);
+        } else {
+            errorEl.hidden = false;
+            input.value    = '';
+            box.classList.add('shake');
+            setTimeout(() => box.classList.remove('shake'), 400);
+            input.focus();
+        }
+    });
+
+    cancelBtn.addEventListener('click', () => {
+        if (!pinResolve) return;
+        modal.hidden   = true;
+        input.value    = '';
+        errorEl.hidden = true;
+        const r = pinResolve;
+        pinResolve = null;
+        r(false);
+    });
+
+    input.addEventListener('keydown', e => {
+        if (e.key === 'Enter')  submitBtn.click();
+        if (e.key === 'Escape') cancelBtn.click();
+    });
+}
+
+
     function requirePin() {
     return new Promise((resolve) => {
         if (sessionUnlocked) { resolve(true); return; }
-
-        const modal     = document.getElementById('pin-modal');
-        const box       = document.getElementById('pin-box');
-        const input     = document.getElementById('pin-input');
-        const errorEl   = document.getElementById('pin-error');
-        const submitBtn = document.getElementById('pin-submit');
-        const cancelBtn = document.getElementById('pin-cancel');
-
+        const modal   = document.getElementById('pin-modal');
+        const input   = document.getElementById('pin-input');
+        const errorEl = document.getElementById('pin-error');
+        pinResolve     = resolve;
         modal.hidden   = false;
         input.value    = '';
         errorEl.hidden = true;
         setTimeout(() => input.focus(), 50);
-
-        function attempt() {
-            if (input.value === EDIT_PIN) {
-                sessionUnlocked = true;
-                modal.hidden    = true;
-                submitBtn.onclick = null;
-                cancelBtn.onclick = null;
-                resolve(true);
-            } else {
-                errorEl.hidden = false;
-                input.value    = '';
-                box.classList.add('shake');
-                setTimeout(() => box.classList.remove('shake'), 400);
-            }
-        }
-
-        function cancel() {
-            modal.hidden      = true;
-            input.value       = '';
-            errorEl.hidden    = true;
-            submitBtn.onclick = null;
-            cancelBtn.onclick = null;
-            resolve(false);
-        }
-
-        submitBtn.onclick = attempt;
-        cancelBtn.onclick = cancel;
-
-        input.onkeydown = (e) => {
-            if (e.key === 'Enter')  attempt();
-            if (e.key === 'Escape') cancel();
-        };
     });
 }
 
@@ -1806,6 +1817,7 @@ async function saveEventsToGitHub() {
     //  INIT
     // ══════════════════════════════════════════════════════════
     async function init() {
+        setupPinModal(); 
         setupThemeToggle();
         setupTodoList();
         setupScratchpad();
