@@ -45,7 +45,7 @@
     "id": "e08",
     "date": "2026-04-06",
     "title": "Hand out Dakkapel Fliers",
-    "private": false
+    "private": true
   },
   {
     "id": "e09",
@@ -303,12 +303,6 @@
     "id": "e51",
     "date": "2027-03-10",
     "title": "Rayden's Birthday",
-    "private": false
-  },
-  {
-    "id": "mnl83xtiaxtc",
-    "date": "2026-04-05",
-    "title": "Test event for this application",
     "private": false
   }
 ]
